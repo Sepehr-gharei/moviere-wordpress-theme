@@ -2,15 +2,15 @@
 // تنظیمات صفحه‌بندی
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; // شماره صفحه فعلی
 
-$category = checkCategory();
+$tag_name = checkTag();
 $order = isset($_GET['order']) ? $_GET['order'] : ''; // دریافت مقدار order از URL
-
+$tag = get_term_by('slug', $tag_name, 'post_tag');
 // پارامترهای WP_Query
 $args = array(
     'post_type' => 'post', // نوع پست
     'posts_per_page' => 12, // تعداد پست‌ها در هر صفحه
     'paged' => $paged, // شماره صفحه فعلی
-    'category_name' => $category, // دسته‌بندی (اختیاری)
+    'tag_id' => $tag->term_id, // دسته‌بندی (اختیاری)
 );
 
 // تنظیمات مرتب‌سازی بر اساس مقدار order

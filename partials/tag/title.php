@@ -12,7 +12,7 @@
                     </svg>
                 </div>
                 <h2><?php
-                echo checkCategory(); ?>
+                echo checkTag(); ?>
                 </h2>
             </div>
             <div class="left-side d-flex align-items-center">
@@ -31,34 +31,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="genre">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            انتخاب ژانر
-                        </button>
-                        <ul class="dropdown-menu">
-                            <input type="text" placeholder="جستجو" class="filter-input" />
-                            <li><a class="dropdown-item" href="#">همه</a></li>
-                            <li><a class="dropdown-item" href="#">اکشن</a></li>
-                            <li><a class="dropdown-item" href="#">درام</a></li>
-                            <li><a class="dropdown-item" href="#">کمدی</a></li>
-                            <li><a class="dropdown-item" href="#">هیجان اگیز</a></li>
-                            <li><a class="dropdown-item" href="#">عاشقانه</a></li>
-                            <li><a class="dropdown-item" href="#">مستند</a></li>
-                            <li><a class="dropdown-item" href="#">جنایی</a></li>
-                            <li><a class="dropdown-item" href="#">ماجرا جویی</a></li>
-                            <li><a class="dropdown-item" href="#">خانوادگی</a></li>
-                            <li><a class="dropdown-item" href="#">علمی تخیلی</a></li>
-                            <li><a class="dropdown-item" href="#">تاریخی</a></li>
-                            <li><a class="dropdown-item" href="#">ترسناک</a></li>
-                            <li><a class="dropdown-item" href="#">موزیکال</a></li>
-                            <li><a class="dropdown-item" href="#">فانتزی</a></li>
-                            <li><a class="dropdown-item" href="#">جنگی</a></li>
-                            <li><a class="dropdown-item" href="#">ورزشی</a></li>
-                        </ul>
-                    </div>
-                </div>
+             
             </div>
         </div>
     </div>

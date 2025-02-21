@@ -5,15 +5,7 @@
 <div class="header-slider archive-header-slider">
     <!-- list Items -->
     <div class="list">
-
-
-
-
-
-
         <?php
-      
-       
         $category_name = checkCategory();
 
         $categories = get_terms(array(
@@ -27,16 +19,10 @@
             $category = $category->term_id;
         }
         $args = array(
-
             'posts_per_page' => 1,
             'category__and' => array($category, 1),
-
         );
-
-
         $custom_query = new WP_Query($args);
-
-
         if ($custom_query->have_posts()):
             while ($custom_query->have_posts()):
                 $custom_query->the_post();
@@ -58,17 +44,15 @@
                         if ($category_name == 'series') {
                             echo 'سریال';
                         }
-
                         ?></h2>
                     </div>
                 </div>
                 <?php
             endwhile;
             wp_reset_postdata();
-      
+
         endif;
         ?>
-
     </div>
 </div>
 <!-- ============================ hero header ============================ -->

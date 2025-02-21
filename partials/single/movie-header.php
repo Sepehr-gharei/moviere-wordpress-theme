@@ -64,7 +64,7 @@
                     if ($post_tags) {
                       foreach ($post_tags as $tag) {
                         ?>
-                        <a  href=""><?php echo $tag->name ?></a>
+                        <a  href="<?php echo home_url() . '\tag' . '/' . $tag->slug ?>"><?php echo $tag->name ?></a>
                         
                         <?php
                       }

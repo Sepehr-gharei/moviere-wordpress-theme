@@ -1,8 +1,8 @@
 <!-- ============================ start body ============================ -->
 
-<div class="container wrapper-fim-category">
+<div class="container wrapper-fim-tag">
     <div class="row">
-<?php get_template_part('loop/category/wrapper', 'wrapper') ?>
+<?php get_template_part('loop/tag/wrapper', 'wrapper') ?>
         
     </div>
 </div>
