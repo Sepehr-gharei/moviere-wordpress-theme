@@ -912,6 +912,17 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
 }
 /* ++++++++++++++++++++++++ end main post slider  */
 /* ++++++++++++++++++++++++ start subscribe  */
+.subscribe-container .packages_wrapping li .fa-circle-check {
+  color: #10b210;
+  padding: 0px 10px;
+  font-size: 24px;
+}
+.subscribe-container .packages_wrapping li .fa-circle-xmark {
+  color: #ff4e4e;
+  padding: 0px 10px;
+  font-size: 24px;
+}
+
 .subscribe-container .packages_wrapping {
   text-align: center;
   width: 100%;
@@ -986,6 +997,10 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   margin: 0 auto;
   text-align: center;
   padding: 2rem 0;
+}
+.subscribe-container .packages_bottombody .btn-pricing small{
+  font-size: 16px;
+  opacity: 0.8;
 }
 .subscribe-container .packages_bottombody .btn-pricing {
   position: relative;
@@ -2741,18 +2756,24 @@ footer .logo img {
   }
 }
 
-.wrapper-artist-container .pagination , .wrapper-fim-category .pagination, .wrapper-fim-tag .pagination{
+.wrapper-artist-container .pagination,
+.wrapper-fim-category .pagination,
+.wrapper-fim-tag .pagination {
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
-.wrapper-artist-container .pagination a , .wrapper-fim-category .pagination a, .wrapper-fim-tag .pagination a {
+.wrapper-artist-container .pagination a,
+.wrapper-fim-category .pagination a,
+.wrapper-fim-tag .pagination a {
   margin: 5px;
   font-size: 20px;
   border-radius: 6px;
   padding: 2px 25px;
 }
-.wrapper-artist-container .pagination span ,  .wrapper-fim-category .pagination span ,  .wrapper-fim-tag .pagination span{
+.wrapper-artist-container .pagination span,
+.wrapper-fim-category .pagination span,
+.wrapper-fim-tag .pagination span {
   margin: 5px;
   font-size: 20px;
   border-radius: 6px;
@@ -2760,7 +2781,11 @@ footer .logo img {
   background: #16a34a75;
 }
 .wrapper-artist-container .pagination .next,
-.wrapper-artist-container .pagination .prev , .wrapper-fim-category .pagination .prev , .wrapper-fim-category .pagination .next , .wrapper-fim-tag .pagination .prev , .wrapper-fim-tag .pagination .next{
+.wrapper-artist-container .pagination .prev,
+.wrapper-fim-category .pagination .prev,
+.wrapper-fim-category .pagination .next,
+.wrapper-fim-tag .pagination .prev,
+.wrapper-fim-tag .pagination .next {
   display: none;
 }
 .comment-section .comment-pagination span,

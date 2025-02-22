@@ -14,26 +14,34 @@ $the_query = new WP_Query($args);
         <div class="swiper-slide">
             <div class="position-relative swiper-header-slide">
                 <a href="<?php the_permalink() ?>">
-                    <img src="<?php 
-                        movie_data('Poster');
-                    ?>" alt="<?php 
+                    <img src="<?php
+                    movie_data('Poster');
+                    ?>" alt="<?php
                     movie_data('Title');
                     ?>" />
                 </a>
                 <h4><a href=<?php the_permalink() ?>><?php
-                    movie_data('Title');
-                ?></a></h4>
+                  movie_data('Title');
+                  ?></a></h4>
                 <span class="imdb">
                     <span><?php
-                        movie_data(data: 'imdbRating');
+                    movie_data(data: 'imdbRating');
                     ?>/
                         <p>10</p>
                     </span>
                     <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
                 </span>
-                <span class="subtitle">
-                    <i class="fa-solid fa-closed-captioning"></i>
-                </span>
+                <?php
+                // گرفتن وضعیت زیرنویس از متاباکس
+                $subtitle_status = get_post_meta(get_the_ID(), 'subtitle_status', true);
+
+                if ($subtitle_status) {
+                    if ($subtitle_status === 'yes') {
+                        echo '<span class="subtitle">
+                         <i class="fa-solid fa-closed-captioning"></i>
+                              </span>';
+                    }
+                } ?>
             </div>
         </div>
     <?php endwhile; ?>
