@@ -1607,7 +1607,7 @@ footer .logo img {
   padding: 10px 15px;
 }
 
-.main-post-slider .header img {
+.main-post-slider .header img , .question-box-header h2 img  {
   width: 50px;
 }
 .main-post-slider .header h2 {

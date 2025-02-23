@@ -6,6 +6,7 @@ include_once("_inc/mr-theme-comment-body/mr_theme_comment_body.php");
 include_once("helper/helper.php");
 include_once("_inc/taxonimies/casts_taxonomies.php");
 include_once("_inc/subscribe/subscribe.php");
+include_once("_inc/question-box/question_box.php");
 function enqueue_second_thumbnail_scripts()
 {
     global $pagenow, $post_type;
