@@ -7,6 +7,7 @@ include_once("helper/helper.php");
 include_once("_inc/taxonimies/casts_taxonomies.php");
 include_once("_inc/subscribe/subscribe.php");
 include_once("_inc/question-box/question_box.php");
+include_once("_inc/admin-bar-css/style.php");
 function enqueue_second_thumbnail_scripts()
 {
     global $pagenow, $post_type;

@@ -41,7 +41,7 @@ add_action('admin_menu', 'add_custom_admin_menu');
 
 function subscriptions_main_page() {
     ?>
-    <div class="wrap">
+    <div class="wrap subscribe-container-admin-menu">
         <h1>اشتراک‌ها</h1>
         <form method="post" action="options.php">
             <?php
@@ -55,11 +55,11 @@ function subscriptions_main_page() {
 }
 
 function subscription_users_page() {
-    echo '<div class="wrap"><h1>کاربران اشتراکی</h1></div>';
+    echo '<div class="wrap subscribe-container-admin-menu"><h1>کاربران اشتراکی</h1></div>';
 }
 
 function add_subscription_user_page() {
-    echo '<div class="wrap"><h1>اضافه کردن کاربر اشتراکی</h1></div>';
+    echo '<div class="wrap subscribe-container-admin-menu"><h1>اضافه کردن کاربر اشتراکی</h1></div>';
 }
 
 function subscriptions_settings() {
@@ -82,13 +82,13 @@ function base_subscription_input() {
     $base_features = isset($options['base_features']) && is_array($options['base_features']) ? $options['base_features'] : [];
 
     echo '<label for="base_month1">قیمت ماه اول:</label>';
-    echo '<input id="base_month1" name="subscription_options[base_month1]" value="' . esc_attr($options['base_month1'] ?? '') . '" />';
+    echo '<input id="base_month1"class="input-price" name="subscription_options[base_month1]" value="' . esc_attr($options['base_month1'] ?? '') . '" />';
     echo '<br>';
     echo '<label for="base_month3">قیمت ماه سوم:</label>';
-    echo '<input id="base_month3" name="subscription_options[base_month3]" value="' . esc_attr($options['base_month3'] ?? '') . '" />';
+    echo '<input id="base_month3"class="input-price" name="subscription_options[base_month3]" value="' . esc_attr($options['base_month3'] ?? '') . '" />';
     echo '<br>';
     echo '<label for="base_year1">قیمت یک ساله:</label>';
-    echo '<input id="base_year1" name="subscription_options[base_year1]" value="' . esc_attr($options['base_year1'] ?? '') . '" />';
+    echo '<input id="base_year1"class="input-price" name="subscription_options[base_year1]" value="' . esc_attr($options['base_year1'] ?? '') . '" />';
     echo '<br>';
 
     echo '<label><input type="checkbox" name="subscription_options[base_features][]" value="دانلود مستقیم"' . (in_array('دانلود مستقیم', $base_features) ? ' checked' : '') . '> دانلود مستقیم</label><br>';
@@ -101,13 +101,13 @@ function silver_subscription_input() {
     $silver_features = isset($options['silver_features']) && is_array($options['silver_features']) ? $options['silver_features'] : [];
 
     echo '<label for="silver_month1">قیمت ماه اول:</label>';
-    echo '<input id="silver_month1" name="subscription_options[silver_month1]" value="' . esc_attr($options['silver_month1'] ?? '') . '" />';
+    echo '<input id="silver_month1"class="input-price" name="subscription_options[silver_month1]" value="' . esc_attr($options['silver_month1'] ?? '') . '" />';
     echo '<br>';
     echo '<label for="silver_month3">قیمت ماه سوم:</label>';
-    echo '<input id="silver_month3" name="subscription_options[silver_month3]" value="' . esc_attr($options['silver_month3'] ?? '') . '" />';
+    echo '<input id="silver_month3"class="input-price" name="subscription_options[silver_month3]" value="' . esc_attr($options['silver_month3'] ?? '') . '" />';
     echo '<br>';
     echo '<label for="silver_year1">قیمت یک ساله:</label>';
-    echo '<input id="silver_year1" name="subscription_options[silver_year1]" value="' . esc_attr($options['silver_year1'] ?? '') . '" />';
+    echo '<input id="silver_year1"class="input-price" name="subscription_options[silver_year1]" value="' . esc_attr($options['silver_year1'] ?? '') . '" />';
     echo '<br>';
 
     echo '<label><input type="checkbox" name="subscription_options[silver_features][]" value="دانلود مستقیم"' . (in_array('دانلود مستقیم', $silver_features) ? ' checked' : '') . '> دانلود مستقیم</label><br>';
@@ -120,13 +120,13 @@ function gold_subscription_input() {
     $gold_features = isset($options['gold_features']) && is_array($options['gold_features']) ? $options['gold_features'] : [];
 
     echo '<label for="gold_month1">قیمت ماه اول:</label>';
-    echo '<input id="gold_month1" name="subscription_options[gold_month1]" value="' . esc_attr($options['gold_month1'] ?? '') . '" />';
+    echo '<input id="gold_month1" class="input-price" name="subscription_options[gold_month1]" value="' . esc_attr($options['gold_month1'] ?? '') . '" />';
     echo '<br>';
     echo '<label for="gold_month3">قیمت ماه سوم:</label>';
-    echo '<input id="gold_month3" name="subscription_options[gold_month3]" value="' . esc_attr($options['gold_month3'] ?? '') . '" />';
+    echo '<input id="gold_month3" class="input-price" name="subscription_options[gold_month3]" value="' . esc_attr($options['gold_month3'] ?? '') . '" />';
     echo '<br>';
     echo '<label for="gold_year1">قیمت یک ساله:</label>';
-    echo '<input id="gold_year1" name="subscription_options[gold_year1]" value="' . esc_attr($options['gold_year1'] ?? '') . '" />';
+    echo '<input id="gold_year1" class="input-price" name="subscription_options[gold_year1]" value="' . esc_attr($options['gold_year1'] ?? '') . '" />';
     echo '<br>';
 
     echo '<label><input type="checkbox" name="subscription_options[gold_features][]" value="دانلود مستقیم"' . (in_array('دانلود مستقیم', $gold_features) ? ' checked' : '') . '> دانلود مستقیم</label><br>';
@@ -145,3 +145,5 @@ function subscriptions_sanitize($input) {
     }
     return $new_input;
 }
+
+// اضافه کردن استایل‌های CSS به پنل ادمین
