@@ -31,7 +31,20 @@
                         </ul>
                     </div>
                 </div>
-             
+                <div class="category">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            دسته بندی </button>
+                        <ul class="dropdown-menu">
+                            <input type="text" placeholder="جستجو" class="filter-input" />
+                            <li><a class="dropdown-item" id="all" href="?category=">همه</a></li>
+                            <li><a class="dropdown-item" id="all" href="?category=movies">فیلم</a></li>
+                            <li><a class="dropdown-item" id="all" href="?category=series">سریال</a></li>
+                            <li><a class="dropdown-item" id="all" href="?category=anime">انیمه</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

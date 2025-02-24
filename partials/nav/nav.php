@@ -26,70 +26,13 @@
               <div class="width-400px">
                 <div class="row">
                   <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
+                    <li><a class="dropdown-item" href="<?php echo home_url() . 'category/film' ?>">فیلم</a></li>
                   </div>
                   <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href=""> فیلم</a></li>
+                    <li><a class="dropdown-item" href="<?php echo home_url() . 'category/series' ?>">سریال</a></li>
                   </div>
                   <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href=""> فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
+                    <li><a class="dropdown-item" href="<?php echo home_url() . 'category/anime' ?>">انیمه</a></li>
                   </div>
                 </div>
               </div>
@@ -97,74 +40,36 @@
           </li>
           <li class="dropdown-item">
             <img src="<?php echo get_template_directory_uri() . './assets/image/film-icon.svg"'; ?> alt="" />
-                <span class=" px-2">ژانر فیلم</span>
+                <span class=" px-2">ژانر ها</span>
             <ul class="dropdown-menu submenu">
               <div class="width-400px">
                 <div class="row">
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="dropdown-item">
-            <img src="<?php echo get_template_directory_uri() . './assets/image/serial-icon.svg'; ?>" alt="" />
 
-            <span class="px-2">ژانر سریال</span>
-            <ul class="dropdown-menu submenu">
-              <div class="width-400px">
-                <div class="row">
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
-                  <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="">فیلم</a></li>
-                  </div>
+                  <?php
+                  $tags = get_tags(); // دریافت تمام تگ‌ها
+                  
+                  if ($tags) {
+                    foreach ($tags as $tag) {
+                      $tag_link = get_tag_link($tag->term_id); // دریافت لینک تگ
+                      echo '<div class="col-6 col-md-3 mx-3 my-2"><li><a class="dropdown-item" href="' . esc_url($tag_link) . '">' . $tag->name . '</a></li></div>';
+                    }
+                  }
+                  ?>
+
+
                 </div>
+
               </div>
             </ul>
           </li>
+
         </ul>
       </div>
     </li>
     <!-- blog -->
     <li class="d-none d-lg-block"><a href="">اخبار</a></li>
     <!-- actors -->
-    <li class="d-none d-lg-block"><a href="">بازیگران</a></li>
+    <li class="d-none d-lg-block"><a href="<?php echo home_url() . '/casts' ?>">بازیگران</a></li>
     <nav class="navbar navbar-expand-md">
 
       <div class="collapse navbar-collapse" id="main-menu">
@@ -206,43 +111,48 @@
                     aria-expanded="false">
                     دسته ها
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
+                  <ul class="dropdown-menu submenu">
+                    <div class="width-400px">
+                      <div class="row">
+                        <div class="col-6 col-md-3 mx-3 my-2">
+                          <li><a class="dropdown-item" href="<?php echo home_url() . 'category/film' ?>">فیلم</a></li>
+                        </div>
+                        <div class="col-6 col-md-3 mx-3 my-2">
+                          <li><a class="dropdown-item" href="<?php echo home_url() . 'category/series' ?>">سریال</a>
+                          </li>
+                        </div>
+                        <div class="col-6 col-md-3 mx-3 my-2">
+                          <li><a class="dropdown-item" href="<?php echo home_url() . 'category/anime' ?>">انیمه</a></li>
+                        </div>
+                      </div>
+                    </div>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    ژانر فیلم
+                    ژانر ها
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
+                  <ul class="dropdown-menu submenu">
+                    <div class="width-400px">
+                      <div class="row">
+                        
+                        <?php
+                  $tags = get_tags(); // دریافت تمام تگ‌ها
+                  
+                  if ($tags) {
+                    foreach ($tags as $tag) {
+                      $tag_link = get_tag_link($tag->term_id); // دریافت لینک تگ
+                      echo '<div class="col-6 col-md-3 mx-3 my-2"><li><a class="dropdown-item" href="' . esc_url($tag_link) . '">' . $tag->name . '</a></li></div>';
+                    }
+                  }
+                  ?>
+                      </div>
+
+                    </div>
                   </ul>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    ژانر سریال
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                    <li><a class="dropdown-item" href="#">فیلم</a></li>
-                  </ul>
-                </li>
+
               </ul>
             </div>
           </div>

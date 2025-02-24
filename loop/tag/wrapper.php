@@ -1,10 +1,15 @@
+
 <?php
+// دریافت دسته‌بندی از URL
+$category = isset($_GET['category']) ? $_GET['category'] : '';
+
 // تنظیمات صفحه‌بندی
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; // شماره صفحه فعلی
 
 $tag_name = checkTag();
 $order = isset($_GET['order']) ? $_GET['order'] : ''; // دریافت مقدار order از URL
 $tag = get_term_by('slug', $tag_name, 'post_tag');
+
 // پارامترهای WP_Query
 $args = array(
     'post_type' => 'post', // نوع پست
@@ -12,6 +17,11 @@ $args = array(
     'paged' => $paged, // شماره صفحه فعلی
     'tag_id' => $tag->term_id, // دسته‌بندی (اختیاری)
 );
+
+// اگر دسته‌بندی انتخاب شده باشد، آن را به پارامترهای WP_Query اضافه کنید
+if (!empty($category)) {
+    $args['category_name'] = $category;
+}
 
 // تنظیمات مرتب‌سازی بر اساس مقدار order
 switch ($order) {

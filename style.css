@@ -1092,6 +1092,7 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   color: #eee;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
+  text-align: right;
 }
 .fag-accordion .accordion-button::after {
   display: none;
