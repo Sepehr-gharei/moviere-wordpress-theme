@@ -136,17 +136,17 @@
                   <ul class="dropdown-menu submenu">
                     <div class="width-400px">
                       <div class="row">
-                        
+
                         <?php
-                  $tags = get_tags(); // دریافت تمام تگ‌ها
-                  
-                  if ($tags) {
-                    foreach ($tags as $tag) {
-                      $tag_link = get_tag_link($tag->term_id); // دریافت لینک تگ
-                      echo '<div class="col-6 col-md-3 mx-3 my-2"><li><a class="dropdown-item" href="' . esc_url($tag_link) . '">' . $tag->name . '</a></li></div>';
-                    }
-                  }
-                  ?>
+                        $tags = get_tags(); // دریافت تمام تگ‌ها
+                        
+                        if ($tags) {
+                          foreach ($tags as $tag) {
+                            $tag_link = get_tag_link($tag->term_id); // دریافت لینک تگ
+                            echo '<div class="col-6 col-md-3 mx-3 my-2"><li><a class="dropdown-item" href="' . esc_url($tag_link) . '">' . $tag->name . '</a></li></div>';
+                          }
+                        }
+                        ?>
                       </div>
 
                     </div>

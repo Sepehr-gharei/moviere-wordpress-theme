@@ -116,3 +116,97 @@ function  get_the_movie_data($data){
         return $movie_details->$data;
     }
 };
+
+
+
+function checkCategory()
+{
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+
+    // دریافت هاست (دامنه)
+    $host = $_SERVER['HTTP_HOST'];
+
+    // دریافت مسیر (Path)
+    $path = $_SERVER['REQUEST_URI'];
+
+    // ساخت URL کامل
+    $url = $protocol . "://" . $host . $path;
+
+
+    // جدا کردن لینک با استفاده از '/'
+    $parts = explode('/', $url);
+
+    // بررسی وجود 'anime' در آرایه
+    if (in_array('anime', $parts)) {
+        return 'anime';
+    }
+    if (in_array('movies', $parts)) {
+        return 'movies';
+    }
+    if (in_array('series', $parts)) {
+        return 'series';
+    }
+}
+
+function checkTag()
+{
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+
+    // دریافت هاست (دامنه)
+    $host = $_SERVER['HTTP_HOST'];
+
+    // دریافت مسیر (Path)
+    $path = $_SERVER['REQUEST_URI'];
+
+    // ساخت URL کامل
+    $url = $protocol . "://" . $host . $path;
+
+
+    // جدا کردن لینک با استفاده از '/'
+    $parts = explode('/', $url);
+
+    // بررسی وجود 'anime' در آرایه
+    if (in_array('action', $parts)) {
+        return 'action';
+    }
+    if (in_array('animation', $parts)) {
+        return 'animation';
+    }
+    if (in_array('biography', $parts)) {
+        return 'biography';
+    }
+    if (in_array('historical', $parts)) {
+        return 'historical';
+    }
+    if (in_array('horror', $parts)) {
+        return 'horror';
+    }
+    if (in_array('crime', $parts)) {
+        return 'crime';
+    }
+    if (in_array('family', $parts)) {
+        return 'family';
+    }
+    if (in_array('drama', $parts)) {
+        return 'drama';
+    }
+    if (in_array('mystery', $parts)) {
+        return 'mystery';
+    }
+    if (in_array('science-fiction', $parts)) {
+        return 'science-fiction';
+    }
+    if (in_array('romance', $parts)) {
+        return 'romance';
+    }
+    if (in_array('fantasy', $parts)) {
+        return 'fantasy';
+    }
+    if (in_array('comedy', $parts)) {
+        return 'comedy';
+    }
+    if (in_array('adventure', $parts)) {
+        return 'adventure';
+    }
+
+}
