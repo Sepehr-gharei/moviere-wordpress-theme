@@ -16,10 +16,14 @@
 I will be happy to help you you can contact me by `sepivarex@gmail.com  ♡`
 
 # 🎬 how to crate new movie
-- you need a movie id `tt0264464`
+- you need a movie id `tt0264464` in movie id metabox
 - you need background movie img 
 - change the perma link  `movie name ` + `-YEAR` 
 - add persian name in `persian name` metabox
 - If the movie has subtitles Enable `subtitle` meta box
 - add type of movie in categories
 - add genre of movie in tags
+# 👥 how to crate new cast
+- add profession actor in categories
+- add actor movies in tags
+- add actor image in thumb
