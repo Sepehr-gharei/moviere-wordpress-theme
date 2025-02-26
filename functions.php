@@ -5,7 +5,7 @@ include_once("_inc/meta-box/meta_box.php");
 include_once("_inc/mr-theme-comment-body/mr_theme_comment_body.php");
 include_once("helper/helper.php");
 include_once("_inc/taxonimies/casts_taxonomy.php");
-include_once("_inc/taxonimies/blog_taxonomy.php");
+include_once("_inc/taxonimies/news_taxonomy.php");
 include_once("_inc/subscribe/subscribe.php");
 include_once("_inc/question-box/question_box.php");
 include_once("_inc/admin-bar-css/style.php");

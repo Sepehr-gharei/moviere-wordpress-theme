@@ -1132,6 +1132,12 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   background-color: #1c1917;
   border-radius: 5px;
 }
+.latest-news-container .contents .item .content-container p{
+  opacity: 0.8;
+}
+.latest-news-container .contents .item .content-container h4 {
+  font-size: 20px;
+}
 .latest-news-container .contents .item .content-container {
   font-size: 14px;
 }
@@ -1174,6 +1180,9 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   }
   .latest-news-container .contents .item .content-container {
     font-size: 16px;
+  }
+  .latest-news-container .contents .item .content-container h4 {
+    font-size: 22px;
   }
   .latest-news-container
     .contents

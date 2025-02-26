@@ -210,3 +210,74 @@ function checkTag()
     }
 
 }
+
+
+function get_news_content($text) {
+    // استفاده از تابع substr برای گرفتن 42 کاراکتر اول
+    $shortText = mb_substr($text, 0, 170, 'UTF-8');
+
+    return $shortText . ' ...';
+}
+
+function get_news_title($text) {
+    // استفاده از تابع substr برای گرفتن 42 کاراکتر اول
+    $shortText = mb_substr($text, 0, 42, 'UTF-8');
+    return $shortText . ' ...';
+}
+
+
+function human_time_diff_for_post($post_id) {
+    // دریافت زمان انتشار پست
+    $post_time = get_the_time('U', $post_id);
+    
+    // زمان فعلی
+    $current_time = current_time('U');
+    
+    // محاسبه تفاوت زمان
+    $time_diff = $current_time - $post_time;
+    
+    // تبدیل تفاوت زمان به فرمت قابل خواندن
+    if ($time_diff < 60) {
+        return sprintf(__('%s ثانیه پیش', 'text-domain'), $time_diff);
+    } elseif ($time_diff < 3600) {
+        return sprintf(__('%s دقیقه پیش', 'text-domain'), floor($time_diff / 60));
+    } elseif ($time_diff < 86400) {
+        return sprintf(__('%s ساعت پیش', 'text-domain'), floor($time_diff / 3600));
+    } elseif ($time_diff < 604800) {
+        return sprintf(__('%s روز پیش', 'text-domain'), floor($time_diff / 86400));
+    } elseif ($time_diff < 2592000) {
+        return sprintf(__('%s هفته پیش', 'text-domain'), floor($time_diff / 604800));
+    } elseif ($time_diff < 31536000) {
+        return sprintf(__('%s ماه پیش', 'text-domain'), floor($time_diff / 2592000));
+    } else {
+        return sprintf(__('%s سال پیش', 'text-domain'), floor($time_diff / 31536000));
+    }
+}
+
+function calculateReadingTime($text) {
+    // تعداد حروف متن را محاسبه می‌کنیم
+    $textLength = mb_strlen($text, 'UTF-8');
+    
+    // فرض می‌کنیم که هر کلمه به طور متوسط 5 حرف دارد
+    $averageWordLength = 5;
+    
+    // تعداد کلمات متن را محاسبه می‌کنیم
+    $wordCount = $textLength / $averageWordLength;
+    
+    // فرض می‌کنیم که یک فرد به طور متوسط 200 کلمه در دقیقه می‌خواند
+    $wordsPerMinute = 200;
+    
+    // زمان لازم برای خواندن متن را محاسبه می‌کنیم (به دقیقه)
+    $readingTime = $wordCount / $wordsPerMinute;
+    
+    // اگر زمان کمتر از 1 دقیقه باشد، آن را به ثانیه تبدیل می‌کنیم
+    if ($readingTime < 1) {
+        $readingTime = ceil($readingTime * 60); // تبدیل به ثانیه و رند کردن به بالا
+        return "$readingTime ثانیه";
+    } else {
+        $readingTime = ceil($readingTime); // رند کردن به بالا
+        return " $readingTime دقیقه";
+    }
+}
+
+// مثال استفاده از تابع
