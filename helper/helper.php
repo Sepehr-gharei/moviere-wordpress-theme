@@ -84,9 +84,9 @@ function get_post_views($postID)
     if ($count == '') {
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
-        return "0 Views";
+        return "0";
     }
-    return $count . ' Views';
+    return $count ;
 }
 
 // Add the set_post_views function to the wp_head hook

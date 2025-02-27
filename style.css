@@ -998,7 +998,7 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   text-align: center;
   padding: 2rem 0;
 }
-.subscribe-container .packages_bottombody .btn-pricing small{
+.subscribe-container .packages_bottombody .btn-pricing small {
   font-size: 16px;
   opacity: 0.8;
 }
@@ -1132,7 +1132,7 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   background-color: #1c1917;
   border-radius: 5px;
 }
-.latest-news-container .contents .item .content-container p{
+.latest-news-container .contents .item .content-container p {
   opacity: 0.8;
 }
 .latest-news-container .contents .item .content-container h4 {
@@ -1171,25 +1171,56 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   padding-left: 2px;
   color: #7c7cff75;
 }
+.latest-news-container .contents .item img {
+  height: 16rem;
+}
+.latest-news-single
+  .contents
+  .item
+  .content-container
+  .date-and-time-to-read
+  :first-child
+  i {
+  font-size: 24px;
 
-@media (max-width: 768px) {
-  .latest-news-container .contents .item {
-    margin: 0 !important;
-    margin-top: 30px !important;
-    padding: 1px 5px 2px 5px !important;
+}
+.latest-news-single
+  .contents
+  .item
+  .content-container
+  .date-and-time-to-read
+  i{
+    font-size: 24px;
   }
-  .latest-news-container .contents .item .content-container {
-    font-size: 16px;
+  .latest-news-single
+  .contents
+  .item
+  .content-container
+  .date-and-time-to-read .view i{
+    color: #134e72;
   }
-  .latest-news-container .contents .item .content-container h4 {
-    font-size: 22px;
+.latest-news-single 
+  .contents
+  .item
+  .content-container
+  .date-and-time-to-read{
+  font-size: 20px;
+  }
+@media (max-width: 1400px) {
+  .latest-news-container .contents .item img {
+    height: 14rem;
+  }
+}
+@media (max-width: 1200px) {
+  .latest-news-container .contents .item img {
+    height: 12rem;
   }
   .latest-news-container
     .contents
     .item
     .content-container
     .date-and-time-to-read {
-    font-size: 16px;
+    font-size: 15px;
   }
   .latest-news-container
     .contents
@@ -1197,11 +1228,14 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
     .content-container
     .date-and-time-to-read
     i {
-    font-size: 20px;
+    font-size: 17px;
     padding-left: 2px;
   }
 }
 @media (max-width: 992px) {
+  .latest-news-container .contents .item img {
+    height: 10rem;
+  }
   .latest-news-container
     .contents
     .item
@@ -1220,13 +1254,28 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
+  .latest-news-container .contents .item img {
+    height: 18rem;
+  }
+  .latest-news-container .contents .item {
+    margin: 0 !important;
+    margin-top: 30px !important;
+    padding: 1px 5px 2px 5px !important;
+  }
+  .latest-news-container .contents .item .content-container {
+    font-size: 16px;
+  }
+  .latest-news-container .contents .item .content-container h4 {
+    font-size: 22px;
+  }
+
   .latest-news-container
     .contents
     .item
     .content-container
     .date-and-time-to-read {
-    font-size: 15px;
+    font-size: 16px;
   }
   .latest-news-container
     .contents
@@ -1234,12 +1283,22 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
     .content-container
     .date-and-time-to-read
     i {
-    font-size: 17px;
+    font-size: 20px;
     padding-left: 2px;
+  }
+}
+
+@media (max-width: 400px) {
+  .latest-news-container .contents .item img {
+    height: 16rem;
   }
 }
 /* end lastest news  */
 /* start fag accrodion  */
+.latest-news-container .contents .item .image-container-single img{
+  height: auto ;
+}
+
 
 footer {
   background-color: #1c1917;
@@ -1617,7 +1676,8 @@ footer .logo img {
   padding: 10px 15px;
 }
 
-.main-post-slider .header img , .question-box-header h2 img  {
+.main-post-slider .header img,
+.question-box-header h2 img {
   width: 50px;
 }
 .main-post-slider .header h2 {
