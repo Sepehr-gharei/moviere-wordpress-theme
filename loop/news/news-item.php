@@ -43,7 +43,7 @@ $the_query = new WP_Query($args);
     <?php endwhile; ?>
 
     <!-- Pagination -->
-    <div class="pagination-container d-flex justify-content-center mt-4">
+    <div class="pagination d-flex justify-content-center mt-4">
         <?php
         $big = 999999999; // عدد بزرگ برای جایگزینی % في لينک‌ها
         echo paginate_links(array(

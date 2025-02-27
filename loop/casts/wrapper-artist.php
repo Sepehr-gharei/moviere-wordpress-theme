@@ -108,7 +108,7 @@ endif;
 function custom_post_type_pagination_casts($query) {
   
   if (!is_admin() && $query->is_main_query() && is_post_type_archive('casts')) {
-      $query->set('posts_per_page', 6); // تعداد پست‌ها در هر صفحه
+      $query->set('posts_per_page', 6); // تعداد پست‌ها در هر صفحه-
   }
 }
 add_action('pre_get_posts', 'custom_post_type_pagination_casts');

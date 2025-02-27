@@ -2831,12 +2831,14 @@ footer .logo img {
 
 .wrapper-artist-container .pagination,
 .wrapper-fim-category .pagination,
+.latest-news-container .pagination,
 .wrapper-fim-tag .pagination {
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 .wrapper-artist-container .pagination a,
+.latest-news-container .pagination a,
 .wrapper-fim-category .pagination a,
 .wrapper-fim-tag .pagination a {
   margin: 5px;
@@ -2846,6 +2848,7 @@ footer .logo img {
 }
 .wrapper-artist-container .pagination span,
 .wrapper-fim-category .pagination span,
+.latest-news-container .pagination span,
 .wrapper-fim-tag .pagination span {
   margin: 5px;
   font-size: 20px;
@@ -2855,6 +2858,8 @@ footer .logo img {
 }
 .wrapper-artist-container .pagination .next,
 .wrapper-artist-container .pagination .prev,
+.latest-news-container .pagination .prev,
+.latest-news-container .pagination .next,
 .wrapper-fim-category .pagination .prev,
 .wrapper-fim-category .pagination .next,
 .wrapper-fim-tag .pagination .prev,
