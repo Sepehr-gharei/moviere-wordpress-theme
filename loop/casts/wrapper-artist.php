@@ -8,7 +8,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 // تنظیمات لوپ برای پست‌های نوع "casts"
 $args = array(
   'post_type' => 'casts', // نوع پست
-  'posts_per_page' => 10, // تعداد پست‌ها در هر صفحه
+  'posts_per_page' => 6, // تعداد پست‌ها در هر صفحه
   'paged' => $paged, // شماره صفحه فعلی
 );
 
@@ -103,4 +103,13 @@ else:
   <p><?php esc_html_e('هیچ پستی یافت نشد.', 'textdomain'); ?></p>
   <?php
 endif;
+?>
+<?php 
+function custom_post_type_pagination_casts($query) {
+  
+  if (!is_admin() && $query->is_main_query() && is_post_type_archive('casts')) {
+      $query->set('posts_per_page', 6); // تعداد پست‌ها در هر صفحه
+  }
+}
+add_action('pre_get_posts', 'custom_post_type_pagination_casts');
 ?>

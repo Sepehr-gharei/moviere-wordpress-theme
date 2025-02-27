@@ -9,3 +9,12 @@ include_once("_inc/taxonimies/news_taxonomy.php");
 include_once("_inc/subscribe/subscribe.php");
 include_once("_inc/question-box/question_box.php");
 include_once("_inc/admin-bar-css/style.php");
+function custom_post_type_pagination($query) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('news')) {
+        $query->set('posts_per_page', 4); // تعداد پست‌ها در هر صفحه
+    }
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('casts')) {
+        $query->set('posts_per_page', 6); // تعداد پست‌ها در هر صفحه
+    }
+}
+add_action('pre_get_posts', 'custom_post_type_pagination');

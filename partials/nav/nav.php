@@ -67,7 +67,7 @@
       </div>
     </li>
     <!-- blog -->
-    <li class="d-none d-lg-block"><a href="">اخبار</a></li>
+    <li class="d-none d-lg-block"><a href="<?php echo home_url() . '/news' ?>">اخبار</a></li>
     <!-- actors -->
     <li class="d-none d-lg-block"><a href="<?php echo home_url() . '/casts' ?>">بازیگران</a></li>
     <nav class="navbar navbar-expand-md">
@@ -162,7 +162,7 @@
             <i class="fa-regular fa-newspaper"></i>
           </div>
           <div>
-            <p>اخبار</p>
+            <p><a href="<?php echo home_url() . '/news' ?>">اخبار</a></p>
           </div>
         </div>
         <div class="col-3 item">

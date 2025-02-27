@@ -1128,6 +1128,9 @@ header .search-login .profile-when-user-login .dropdown .dropdown-menu::before {
   width: 100%;
   border-radius: 5px;
 }
+.latest-news-container .contents .single-item {
+  border: 5px solid #262626;
+}
 .latest-news-container .contents .item {
   background-color: #1c1917;
   border-radius: 5px;

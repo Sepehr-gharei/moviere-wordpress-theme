@@ -84,7 +84,7 @@ function get_post_views($postID)
     if ($count == '') {
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
-        return "0";
+        return "1";
     }
     return $count ;
 }
