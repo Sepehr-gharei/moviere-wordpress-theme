@@ -279,6 +279,8 @@ function custom_series_download_meta_box_html($post) {
                                     <h5>کیفیت <?php echo $quality_index + 1; ?></h5>
                                     <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>">کیفیت:</label>
                                     <input type="text" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][name]" id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>" value="<?php echo esc_attr($quality['name']); ?>" />
+                                    <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_subtitle">زیرنویس دارد:</label>
+                                    <input type="checkbox" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][subtitle]" id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_subtitle" <?php echo isset($quality['subtitle']) && $quality['subtitle'] ? 'checked' : ''; ?> />
                                     <div class="episodes">
                                         <?php
                                         if (!empty($quality['episodes'])) {
@@ -333,6 +335,8 @@ function custom_series_download_meta_box_html($post) {
                     div.innerHTML = '<h5>کیفیت ' + (qualityIndex + 1) + '</h5>' +
                         '<label for="season_' + seasonIndex + '_quality_' + qualityIndex + '">کیفیت:</label>' +
                         '<input type="text" name="season[' + seasonIndex + '][qualities][' + qualityIndex + '][name]" id="season_' + seasonIndex + '_quality_' + qualityIndex + '" />' +
+                        '<label for="season_' + seasonIndex + '_quality_' + qualityIndex + '_subtitle">زیرنویس دارد:</label>' +
+                        '<input type="checkbox" name="season[' + seasonIndex + '][qualities][' + qualityIndex + '][subtitle]" id="season_' + seasonIndex + '_quality_' + qualityIndex + '_subtitle" />' +
                         '<div class="episodes"></div>' +
                         '<button type="button" class="add-episode" data-season-index="' + seasonIndex + '" data-quality-index="' + qualityIndex + '">افزودن قسمت</button>';
                     qualitiesDiv.appendChild(div);
@@ -384,6 +388,11 @@ add_action('save_post', 'custom_series_download_save_meta_box_data');
 
 
 
+
+
+
+
+
 function movie_link_meta_box_add() {
     global $post;
     $categories = get_the_category($post->ID);
@@ -421,6 +430,8 @@ function movie_link_meta_box_html($post) {
                     <h4>کیفیت <?php echo $index + 1; ?></h4>
                     <label for="quality_<?php echo $index; ?>">کیفیت:</label>
                     <input type="text" name="quality[<?php echo $index; ?>][name]" id="quality_<?php echo $index; ?>" value="<?php echo esc_attr($quality['name']); ?>" />
+                    <label for="quality_<?php echo $index; ?>_subtitle">زیرنویس دارد:</label>
+                    <input type="checkbox" name="quality[<?php echo $index; ?>][subtitle]" id="quality_<?php echo $index; ?>_subtitle" <?php echo isset($quality['subtitle']) && $quality['subtitle'] ? 'checked' : ''; ?> />
                     <div class="episodes">
                         <?php
                         if (!empty($quality['episodes'])) {
@@ -454,6 +465,8 @@ function movie_link_meta_box_html($post) {
                 div.innerHTML = '<h4>کیفیت ' + (qualityIndex + 1) + '</h4>' +
                     '<label for="quality_' + qualityIndex + '">کیفیت:</label>' +
                     '<input type="text" name="quality[' + qualityIndex + '][name]" id="quality_' + qualityIndex + '" />' +
+                    '<label for="quality_' + qualityIndex + '_subtitle">زیرنویس دارد:</label>' +
+                    '<input type="checkbox" name="quality[' + qualityIndex + '][subtitle]" id="quality_' + qualityIndex + '_subtitle" />' +
                     '<div class="episodes"></div>' +
                     '<button type="button" class="add-episode" data-quality-index="' + qualityIndex + '">افزودن قسمت</button>';
                 container.appendChild(div);
