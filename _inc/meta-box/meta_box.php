@@ -145,7 +145,7 @@ function imdb_score_meta_box_callback($post)
 
 
 
-function  movie_year_meta_box()
+function movie_year_meta_box()
 {
     add_meta_box(
         'movie_year',
@@ -164,7 +164,7 @@ function movie_year_meta_box_callback($post)
     $movie_year = isset($movie_details->Year) ? $movie_details->Year : '';
 
     // ذخیره نمره IMDB به عنوان متا داده
-    update_post_meta($post->ID, '_movie_year',  $movie_year);
+    update_post_meta($post->ID, '_movie_year', $movie_year);
 
     ?>
     <label for="movie_year">IMDB Score:</label>
@@ -175,7 +175,8 @@ function movie_year_meta_box_callback($post)
 
 
 
-function add_gender_metabox() {
+function add_gender_metabox()
+{
     add_meta_box(
         'gender_metabox', // ID متاباکس
         'جنسیت بازیگر', // عنوان متاباکس
@@ -186,7 +187,8 @@ function add_gender_metabox() {
     );
 }
 add_action('add_meta_boxes', 'add_gender_metabox');
-function render_gender_metabox($post) {
+function render_gender_metabox($post)
+{
     // دریافت مقدار فعلی متا فیلد
     $gender = get_post_meta($post->ID, '_gender', true);
 
@@ -200,7 +202,8 @@ function render_gender_metabox($post) {
     echo '<option value="female"' . selected($gender, 'female', false) . '>زن</option>';
     echo '</select>';
 }
-function save_gender_metabox($post_id) {
+function save_gender_metabox($post_id)
+{
     // بررسی nonce برای امنیت
     if (!isset($_POST['gender_metabox_nonce']) || !wp_verify_nonce($_POST['gender_metabox_nonce'], 'gender_metabox_nonce')) {
         return;
@@ -219,3 +222,278 @@ function save_gender_metabox($post_id) {
 add_action('save_post', 'save_gender_metabox');
 
 
+
+
+
+
+
+
+
+
+
+                
+
+
+
+function custom_series_download_add_meta_box() {
+    global $post;
+    $categories = get_the_category($post->ID);
+    $show_meta_box = false;
+
+    foreach ($categories as $category) {
+        if ($category->slug == 'series') {
+            $show_meta_box = true;
+            break;
+        }
+    }
+
+    if ($show_meta_box) {
+        add_meta_box(
+            'custom_series_download_meta_box',       // Unique ID
+            'Custom Series Download Links',       // Box title
+            'custom_series_download_meta_box_html',  // Content callback, must be of type callable
+            'post'                   // Post type
+        );
+    }
+}
+add_action('add_meta_boxes', 'custom_series_download_add_meta_box');
+
+function custom_series_download_meta_box_html($post) {
+    wp_nonce_field('custom_series_download_save_meta_box_data', 'custom_series_download_meta_box_nonce');
+    
+    $season_data = get_post_meta($post->ID, '_season_data', true);
+    ?>
+    <div id="season-container">
+        <?php
+        if (!empty($season_data)) {
+            foreach ($season_data as $index => $season) {
+                ?>
+                <div class="season">
+                    <h4>فصل <?php echo $index + 1; ?></h4>
+                    <div class="qualities">
+                        <?php
+                        if (!empty($season['qualities'])) {
+                            foreach ($season['qualities'] as $quality_index => $quality) {
+                                ?>
+                                <div class="quality">
+                                    <h5>کیفیت <?php echo $quality_index + 1; ?></h5>
+                                    <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>">کیفیت:</label>
+                                    <input type="text" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][name]" id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>" value="<?php echo esc_attr($quality['name']); ?>" />
+                                    <div class="episodes">
+                                        <?php
+                                        if (!empty($quality['episodes'])) {
+                                            foreach ($quality['episodes'] as $ep_index => $episode) {
+                                                ?>
+                                                <div class="episode">
+                                                    <p>قسمت <?php echo $ep_index + 1; ?>:</p>
+                                                    <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_episode_<?php echo $ep_index; ?>_link">لینک:</label>
+                                                    <input type="text" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][episodes][<?php echo $ep_index; ?>][link]" id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_episode_<?php echo $ep_index; ?>_link" value="<?php echo esc_attr($episode['link']); ?>" />
+                                                </div>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <button type="button" class="add-episode" data-season-index="<?php echo $index; ?>" data-quality-index="<?php echo $quality_index; ?>">افزودن قسمت</button>
+                                </div>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <button type="button" class="add-quality" data-season-index="<?php echo $index; ?>">افزودن کیفیت</button>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
+    <button type="button" id="add-season">افزودن فصل</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let seasonIndex = <?php echo empty($season_data) ? 0 : count($season_data); ?>;
+            document.getElementById('add-season').addEventListener('click', function() {
+                let container = document.getElementById('season-container');
+                let div = document.createElement('div');
+                div.classList.add('season');
+                div.innerHTML = '<h4>فصل ' + (seasonIndex + 1) + '</h4>' +
+                    '<div class="qualities"></div>' +
+                    '<button type="button" class="add-quality" data-season-index="' + seasonIndex + '">افزودن کیفیت</button>';
+                container.appendChild(div);
+                seasonIndex++;
+            });
+
+            document.getElementById('season-container').addEventListener('click', function(event) {
+                if (event.target.classList.contains('add-quality')) {
+                    let seasonIndex = event.target.getAttribute('data-season-index');
+                    let qualitiesDiv = event.target.previousElementSibling;
+                    let qualityIndex = qualitiesDiv.children.length;
+                    let div = document.createElement('div');
+                    div.classList.add('quality');
+                    div.innerHTML = '<h5>کیفیت ' + (qualityIndex + 1) + '</h5>' +
+                        '<label for="season_' + seasonIndex + '_quality_' + qualityIndex + '">کیفیت:</label>' +
+                        '<input type="text" name="season[' + seasonIndex + '][qualities][' + qualityIndex + '][name]" id="season_' + seasonIndex + '_quality_' + qualityIndex + '" />' +
+                        '<div class="episodes"></div>' +
+                        '<button type="button" class="add-episode" data-season-index="' + seasonIndex + '" data-quality-index="' + qualityIndex + '">افزودن قسمت</button>';
+                    qualitiesDiv.appendChild(div);
+                }
+
+                if (event.target.classList.contains('add-episode')) {
+                    let seasonIndex = event.target.getAttribute('data-season-index');
+                    let qualityIndex = event.target.getAttribute('data-quality-index');
+                    let episodesDiv = event.target.previousElementSibling;
+                    let episodeIndex = episodesDiv.children.length;
+                    let div = document.createElement('div');
+                    div.classList.add('episode');
+                    div.innerHTML = '<p>قسمت ' + (episodeIndex + 1) + ':</p>' +
+                        '<label for="season_' + seasonIndex + '_quality_' + qualityIndex + '_episode_' + episodeIndex + '_link">لینک:</label>' +
+                        '<input type="text" name="season[' + seasonIndex + '][qualities][' + qualityIndex + '][episodes][' + episodeIndex + '][link]" id="season_' + seasonIndex + '_quality_' + qualityIndex + '_episode_' + episodeIndex + '_link" />';
+                    episodesDiv.appendChild(div);
+                }
+            });
+        });
+    </script>
+    <?php
+}
+
+function custom_series_download_save_meta_box_data($post_id) {
+    if (!isset($_POST['custom_series_download_meta_box_nonce'])) {
+        return;
+    }
+    if (!wp_verify_nonce($_POST['custom_series_download_meta_box_nonce'], 'custom_series_download_save_meta_box_data')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (isset($_POST['season'])) {
+        update_post_meta($post_id, '_season_data', $_POST['season']);
+    }
+}
+add_action('save_post', 'custom_series_download_save_meta_box_data');
+
+
+
+
+
+
+
+
+
+function movie_link_meta_box_add() {
+    global $post;
+    $categories = get_the_category($post->ID);
+    $show_meta_box = true;
+
+    foreach ($categories as $category) {
+        if ($category->slug == 'series') {
+            $show_meta_box = false;
+            break;
+        }
+    }
+
+    if ($show_meta_box) {
+        add_meta_box(
+            'movie_link_meta_box',       // Unique ID
+            'Movie Link Meta Box',       // Box title
+            'movie_link_meta_box_html',  // Content callback, must be of type callable
+            'post'                       // Post type
+        );
+    }
+}
+add_action('add_meta_boxes', 'movie_link_meta_box_add');
+
+function movie_link_meta_box_html($post) {
+    wp_nonce_field('movie_link_meta_box_save', 'movie_link_meta_box_nonce');
+    
+    $quality_data = get_post_meta($post->ID, '_quality_data', true);
+    ?>
+    <div id="quality-container">
+        <?php
+        if (!empty($quality_data)) {
+            foreach ($quality_data as $index => $quality) {
+                ?>
+                <div class="quality">
+                    <h4>کیفیت <?php echo $index + 1; ?></h4>
+                    <label for="quality_<?php echo $index; ?>">کیفیت:</label>
+                    <input type="text" name="quality[<?php echo $index; ?>][name]" id="quality_<?php echo $index; ?>" value="<?php echo esc_attr($quality['name']); ?>" />
+                    <div class="episodes">
+                        <?php
+                        if (!empty($quality['episodes'])) {
+                            foreach ($quality['episodes'] as $ep_index => $episode) {
+                                ?>
+                                <div class="episode">
+                                    <p>قسمت <?php echo $ep_index + 1; ?>:</p>
+                                    <label for="quality_<?php echo $index; ?>_episode_<?php echo $ep_index; ?>_link">لینک:</label>
+                                    <input type="text" name="quality[<?php echo $index; ?>][episodes][<?php echo $ep_index; ?>][link]" id="quality_<?php echo $index; ?>_episode_<?php echo $ep_index; ?>_link" value="<?php echo esc_attr($episode['link']); ?>" />
+                                </div>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <button type="button" class="add-episode" data-quality-index="<?php echo $index; ?>">افزودن قسمت</button>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
+    <button type="button" id="add-quality">افزودن کیفیت</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let qualityIndex = <?php echo empty($quality_data) ? 0 : count($quality_data); ?>;
+            document.getElementById('add-quality').addEventListener('click', function() {
+                let container = document.getElementById('quality-container');
+                let div = document.createElement('div');
+                div.classList.add('quality');
+                div.innerHTML = '<h4>کیفیت ' + (qualityIndex + 1) + '</h4>' +
+                    '<label for="quality_' + qualityIndex + '">کیفیت:</label>' +
+                    '<input type="text" name="quality[' + qualityIndex + '][name]" id="quality_' + qualityIndex + '" />' +
+                    '<div class="episodes"></div>' +
+                    '<button type="button" class="add-episode" data-quality-index="' + qualityIndex + '">افزودن قسمت</button>';
+                container.appendChild(div);
+                qualityIndex++;
+            });
+
+            document.getElementById('quality-container').addEventListener('click', function(event) {
+                if (event.target.classList.contains('add-episode')) {
+                    let qualityIndex = event.target.getAttribute('data-quality-index');
+                    let episodesDiv = event.target.previousElementSibling;
+                    let episodeIndex = episodesDiv.children.length;
+                    let div = document.createElement('div');
+                    div.classList.add('episode');
+                    div.innerHTML = '<p>قسمت ' + (episodeIndex + 1) + ':</p>' +
+                        '<label for="quality_' + qualityIndex + '_episode_' + episodeIndex + '_link">لینک:</label>' +
+                        '<input type="text" name="quality[' + qualityIndex + '][episodes][' + episodeIndex + '][link]" id="quality_' + qualityIndex + '_episode_' + episodeIndex + '_link" />';
+                    episodesDiv.appendChild(div);
+                }
+            });
+        });
+    </script>
+    <?php
+}
+
+function movie_link_meta_box_save($post_id) {
+    if (!isset($_POST['movie_link_meta_box_nonce'])) {
+        return;
+    }
+    if (!wp_verify_nonce($_POST['movie_link_meta_box_nonce'], 'movie_link_meta_box_save')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (isset($_POST['quality'])) {
+        update_post_meta($post_id, '_quality_data', $_POST['quality']);
+    }
+}
+add_action('save_post', 'movie_link_meta_box_save');

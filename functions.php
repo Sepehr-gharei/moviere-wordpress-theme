@@ -18,3 +18,9 @@ function custom_post_type_pagination($query) {
     }
 }
 add_action('pre_get_posts', 'custom_post_type_pagination');
+function enqueue_custom_metabox_scripts() {
+    
+        wp_enqueue_script('custom-metabox-script', get_template_directory_uri() . './assets/js/custom-metabox.js', ['jquery'], null, true);
+    
+}
+add_action('admin_enqueue_scripts', 'enqueue_custom_metabox_scripts');

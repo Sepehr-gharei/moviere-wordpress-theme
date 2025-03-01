@@ -69,6 +69,7 @@
 
 <!-- ============================ end footer  ============================ -->
 <?php wp_footer() ?>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('#change-post-type .dropdown-item').forEach(function(item) {
