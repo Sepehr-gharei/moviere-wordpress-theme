@@ -11,16 +11,16 @@ include_once("_inc/question-box/question_box.php");
 include_once("_inc/admin-bar-css/style.php");
 function custom_post_type_pagination($query) {
     if (!is_admin() && $query->is_main_query() && is_post_type_archive('news')) {
-        $query->set('posts_per_page', 4); // تعداد پست‌ها در هر صفحه
+        $query->set('posts_per_page', 1); // تعداد پست‌ها در هر صفحه
     }
     if (!is_admin() && $query->is_main_query() && is_post_type_archive('casts')) {
-        $query->set('posts_per_page', 6); // تعداد پست‌ها در هر صفحه
+        $query->set('posts_per_page', 1); // تعداد پست‌ها در هر صفحه
+    }
+     if (!is_admin() && $query->is_main_query()) {
+        // بررسی اینکه آیا در صفحه آرشیو نوع پست 'news' یا صفحه دسته‌بندی هستیم
+        if (is_post_type_archive('news') || is_category()) {
+            $query->set('posts_per_page', 1); // تعداد پست‌ها در هر صفحه
+        }
     }
 }
 add_action('pre_get_posts', 'custom_post_type_pagination');
-function enqueue_custom_metabox_scripts() {
-    
-        wp_enqueue_script('custom-metabox-script', get_template_directory_uri() . './assets/js/custom-metabox.js', ['jquery'], null, true);
-    
-}
-add_action('admin_enqueue_scripts', 'enqueue_custom_metabox_scripts');

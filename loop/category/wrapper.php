@@ -8,7 +8,7 @@ $order = isset($_GET['order']) ? $_GET['order'] : ''; // دریافت مقدار
 // پارامترهای WP_Query
 $args = array(
     'post_type' => 'post', // نوع پست
-    'posts_per_page' => 12, // تعداد پست‌ها در هر صفحه
+    'posts_per_page' => 4, // تعداد پست‌ها در هر صفحه
     'paged' => $paged, // شماره صفحه فعلی
     'category_name' => $category, // دسته‌بندی (اختیاری)
 );

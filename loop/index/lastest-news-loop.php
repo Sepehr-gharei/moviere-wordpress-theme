@@ -1,7 +1,7 @@
 <?php
 
 $args = array(
-  'posts_per_page' => 2,
+   'posts_per_page' => 6,  //برای مشاهده تغیر باید در functions.php هم post_per_page رو تغیر دهید به همین عدد 
   'post_type' => 'news',
 
 );
@@ -10,12 +10,12 @@ $the_query = new WP_Query($args);
 <?php if ($the_query->have_posts()): ?>
   <?php while ($the_query->have_posts()):
     $the_query->the_post(); ?>
-    <a href="<?php the_permalink() ?>">
+    <a class="d-flex align-items-center" href="<?php the_permalink() ?>">
       <div class="item col-12 col-md-6 d-xl-flex m-2 py-2">
-        <div class="image-container item col-12 col-xl-7 p-2">
+        <div class="image-container w-100 item col-12 col-xl-7 p-2">
           <?php if (has_post_thumbnail()) {
             $thumbnail_url = get_the_post_thumbnail_url();
-            echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
+            echo '<img class="w-100 h-auto" src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
           }
           ?>
       
