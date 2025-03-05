@@ -6,7 +6,7 @@ $args = array(
     'post_type' => 'post',
     'date_query' => array(
         array(
-            'after' => '1 month ago',
+            'after' => '3 month ago',
         ),
     ),
     'orderby' => 'comment_count',

@@ -187,9 +187,9 @@
             class="fa-solid fa-circle-xmark"></i></span>
         <div class="close-2-background" onclick="closeSearch()"></div>
         <div class="overlay-content">
-          <form onsubmit="event.preventDefault();" role="search" dir="ltr">
+          <form action="<?php bloginfo('url') ?>" method="get"  role="search" dir="ltr">
             <label for="search">Search for stuff</label>
-            <input id="search" type="search" placeholder="Search..." autofocus required />
+            <input id="search" name="s" type="search" placeholder="Search..." autofocus required />
             <button type="submit">Go</button>
           </form>
         </div>

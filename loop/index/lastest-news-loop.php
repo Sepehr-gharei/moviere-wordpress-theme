@@ -1,7 +1,7 @@
 <?php
 
 $args = array(
-   'posts_per_page' => 6,  //برای مشاهده تغیر باید در functions.php هم post_per_page رو تغیر دهید به همین عدد 
+   'posts_per_page' => 2,  //برای مشاهده تغیر باید در functions.php هم post_per_page رو تغیر دهید به همین عدد 
   'post_type' => 'news',
 
 );

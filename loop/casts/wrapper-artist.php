@@ -2,7 +2,7 @@
 <?php
 // دریافت پارامترهای GET
 $gender = isset($_GET['gender']) ? sanitize_text_field($_GET['gender']) : '';
-$genre = isset($_GET['genre']) ? sanitize_text_field($_GET['genre']) : '';
+$profession = isset($_GET['profession']) ? sanitize_text_field($_GET['profession']) : '';
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 // تنظیمات لوپ برای پست‌های نوع "casts"
@@ -19,13 +19,13 @@ if (!empty($gender)) {
   $args['meta_compare'] = '=';
 }
 
-// اگر genre انتخاب شده باشد، آن را به آرگومان‌ها اضافه کنید
-if (!empty($genre)) {
+// اگر profession انتخاب شده باشد، آن را به آرگومان‌ها اضافه کنید
+if (!empty($profession)) {
   $args['tax_query'] = array(
     array(
       'taxonomy' => 'cast_category', // نام تاکسونومی
       'field' => 'slug',
-      'terms' => $genre,
+      'terms' => $profession,
     ),
   );
 }
