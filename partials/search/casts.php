@@ -23,7 +23,7 @@
     <div class="row">
         <div class="actor-post-slider">
             <div class="swiper actor-swiper-slider">
-                <div class="swiper-wrapper d-flex justify-content-center">
+                <div class="swiper-wrapper">
                 <?php
                 // تنظیم آرگومان‌ها برای WP_Query
                 $args = array(
