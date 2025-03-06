@@ -24,13 +24,13 @@ function register_assets()
     wp_enqueue_script('main');
     wp_register_script('bootstrap-5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', [], '5.3.3', true);
     wp_enqueue_script('bootstrap-5');
+    wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', [], '3.6.0', true);
+    wp_enqueue_script('jquery');
     wp_enqueue_script('ajax',get_template_directory_uri() . './assets/js/ajax.js', ['jquery'], '1.0.0', true);
     wp_localize_script('ajax','ajax',[
         'ajaxurl'=>admin_url('admin-ajax.php'),
         '_nonce'=> wp_create_nonce(),
     ]);
-    wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', [], '3.6.0', true);
-    wp_enqueue_script('jquery');
     wp_register_script('preloader', get_template_directory_uri() . './assets/js/preloader.js', [], '1.0.0', true);
     wp_enqueue_script('preloader');
     /* **************************** end register JS *****************************/

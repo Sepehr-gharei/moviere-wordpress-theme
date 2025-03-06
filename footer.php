@@ -69,7 +69,7 @@
 
 <!-- ============================ end footer  ============================ -->
 <?php wp_footer() ?>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('#change-post-type .dropdown-item').forEach(function(item) {
