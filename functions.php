@@ -46,120 +46,108 @@ add_action('pre_get_posts', 'custom_post_type_pagination');
 
 
 
-// $button_text = in_array($post->ID, $watchlist) ? 'حذف از واچلیست' : 'افزودن به واچلیست';
-// echo '<button class="watchlist-btn button" data-post-id="' . $post->ID . '">' . $button_text . '</button>';
+// $button_text = in_array($post->ID, $favorite) ? 'حذف از علاقه مندی' : 'افزودن به علاقه مندی';
+// echo '<button class="favorite-btn button" data-post-id="' . $post->ID . '">' . $button_text . '</button>';
 
 
 
-// 1. افزودن دکمه واچلیست به صفحه تکنویس
-function add_watchlist_button() {
+// 1. افزودن دکمه علاقه مندی به صفحه تکنویس
+function add_favorite_button() {
     if (is_single() && get_post_type() == 'post') {
         global $post;
         $user_id = get_current_user_id();
-        $watchlist = get_user_meta($user_id, 'user_watchlist', true) ?: [];
-        $button_text = in_array($post->ID, $watchlist) ? 'minus' : 'plus';
-        echo '<p class="watchlist-btn button" data-post-id="' . $post->ID . '"><i class="fa-solid fa-heart-circle-' . $button_text . '"></i></p>';
+        $favorite = get_user_meta($user_id, 'user_favorite', true) ?: [];
+        $button_text = in_array($post->ID, $favorite) ? 'minus' : 'plus';
+        echo '<p class="favorite-btn button" data-post-id="' . $post->ID . '"><i class="fa-solid fa-heart-circle-' . $button_text . '"></i></p>';
     }
 }
 
-add_action('wp_footer', 'add_watchlist_button');
+add_action('wp_footer', 'add_favorite_button');
 
-// 2. پردازش عملیات واچلیست با AJAX
-function handle_watchlist_ajax() {
+// 2. پردازش عملیات علاقه مندی با AJAX
+function handle_favorite_ajax() {
     if (!is_user_logged_in()) {
         wp_send_json_error('ابتدا وارد شوید');
     }
 
     $post_id = intval($_POST['post_id']);
     $user_id = get_current_user_id();
-    $watchlist = get_user_meta($user_id, 'user_watchlist', true) ?: [];
+    $favorite = get_user_meta($user_id, 'user_favorite', true) ?: [];
 
-    if (in_array($post_id, $watchlist)) {
-        $watchlist = array_diff($watchlist, [$post_id]);
-        $message = 'از واچلیست حذف شد';
+    if (in_array($post_id, $favorite)) {
+        $favorite = array_diff($favorite, [$post_id]);
+        $message = 'از علاقه مندی حذف شد';
     } else {
-        $watchlist[] = $post_id;
-        $message = 'به واچلیست اضافه شد';
+        $favorite[] = $post_id;
+        $message = 'به علاقه مندی اضافه شد';
     }
 
-    update_user_meta($user_id, 'user_watchlist', array_values($watchlist));
+    update_user_meta($user_id, 'user_favorite', array_values($favorite));
     wp_send_json_success($message);
 }
-add_action('wp_ajax_update_watchlist', 'handle_watchlist_ajax');
+add_action('wp_ajax_update_favorite', 'handle_favorite_ajax');
 
-// 3. پردازش حذف مورد از واچلیست
-function handle_remove_watchlist_ajax() {
+// 3. پردازش حذف مورد از علاقه مندی
+function handle_remove_favorite_ajax() {
     if (!is_user_logged_in()) {
         wp_send_json_error('دسترسی غیرمجاز');
     }
 
     $post_id = intval($_POST['post_id']);
     $user_id = get_current_user_id();
-    $watchlist = get_user_meta($user_id, 'user_watchlist', true) ?: [];
+    $favorite = get_user_meta($user_id, 'user_favorite', true) ?: [];
 
-    if (($key = array_search($post_id, $watchlist)) !== false) {
-        unset($watchlist[$key]);
-        update_user_meta($user_id, 'user_watchlist', array_values($watchlist));
-        wp_send_json_success('مورد از واچلیست حذف شد');
+    if (($key = array_search($post_id, $favorite)) !== false) {
+        unset($favorite[$key]);
+        update_user_meta($user_id, 'user_favorite', array_values($favorite));
+        wp_send_json_success('مورد از علاقه مندی حذف شد');
     }
 
     wp_send_json_error('خطا در حذف');
 }
-add_action('wp_ajax_remove_from_watchlist', 'handle_remove_watchlist_ajax');
+add_action('wp_ajax_remove_from_favorite', 'handle_remove_favorite_ajax');
 
-// 4. نمایش واچلیست کاربر
-function display_user_watchlist() {
+// 4. نمایش علاقه مندی کاربر
+function display_user_favorite() {
     if (!is_user_logged_in()) {
-        echo '<p>برای مشاهده واچلیست باید وارد شوید</p>';
+        echo '<p>برای مشاهده علاقه مندی باید وارد شوید</p>';
         return;
     }
 
     $user_id = get_current_user_id();
-    $watchlist = get_user_meta($user_id, 'user_watchlist', true) ?: [];
+    $favorite = get_user_meta($user_id, 'user_favorite', true) ?: [];
 
-    if (empty($watchlist)) {
-        echo '<p>واچلیست شما خالی است</p>';
+    if (empty($favorite)) {
+        echo '<p>علاقه مندی شما خالی است</p>';
         return;
     }
 
-    echo '<ul class="watchlist-items">';
-    foreach ($watchlist as $post_id) {
+    echo '<ul class="favorite-items">';
+    foreach ($favorite as $post_id) {
         $post = get_post($post_id);
         if ($post) {
             echo '<li>';
             echo '<a href="' . get_permalink($post_id) . '">' . $post->post_title . '</a>';
-            echo '<button class="remove-from-watchlist button" data-post-id="' . $post_id . '">حذف</button>';
+            echo '<button class="remove-from-favorite button" data-post-id="' . $post_id . '">حذف</button>';
             echo '</li>';
         }
     }
     echo '</ul>';
 }
-add_shortcode('user_watchlist', 'display_user_watchlist');
+add_shortcode('user_favorite', 'display_user_favorite');
 
 // 5. لود فایل JavaScript و ارسال متغیرهای AJAX
-function enqueue_watchlist_scripts() {
-    wp_enqueue_script(
-        'watchlist-script',
-        get_template_directory_uri() . '/assets/js/wishlist.js',
-        array('jquery'),
-        null,
-        true
-    );
-
-    // ارسال متغیر وضعیت لاگین
-    wp_localize_script('watchlist-script', 'ajax_object', array(
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'is_logged_in' => is_user_logged_in() ? '1' : '0' // اضافه کنید
-    ));
+function enqueue_favorite_scripts() {
+  
 }
-add_action('wp_enqueue_scripts', 'enqueue_watchlist_scripts');
+add_action('wp_enqueue_scripts', 'enqueue_favorite_scripts');
 
-// تابع شمارش پستهای واچلیست
-function get_watchlist_count() {
+// تابع شمارش پستهای علاقه مندی
+function get_favorite_count() {
     if (!is_user_logged_in()) return 0;
     $user_id = get_current_user_id();
-    $watchlist = get_user_meta($user_id, 'user_watchlist', true) ?: [];
-    return count($watchlist);
+    $favorite = get_user_meta($user_id, 'user_favorite', true) ?: [];
+    return count($favorite);
 }
 
 

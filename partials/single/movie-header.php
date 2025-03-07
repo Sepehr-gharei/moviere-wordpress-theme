@@ -56,7 +56,7 @@
                 <div class="favorite">
                   <?php
                   // در فایل functions.php پوسته یا پلاگین
-                  add_watchlist_button();
+                  add_favorite_button();
                   ?>
                 </div>
               </div>

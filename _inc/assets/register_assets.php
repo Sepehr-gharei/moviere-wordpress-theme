@@ -31,6 +31,19 @@ function register_assets()
         'ajaxurl'=>admin_url('admin-ajax.php'),
         '_nonce'=> wp_create_nonce(),
     ]);
+    wp_enqueue_script(
+        'favorite-script',
+        get_template_directory_uri() . '/assets/js/favoritelist.js',
+        array('jquery'),
+        null,
+        true
+    );
+
+    // ارسال متغیر وضعیت لاگین
+    wp_localize_script('favorite-script', 'ajax_object', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'is_logged_in' => is_user_logged_in() ? '1' : '0' // اضافه کنید
+    ));
     wp_register_script('preloader', get_template_directory_uri() . './assets/js/preloader.js', [], '1.0.0', true);
     wp_enqueue_script('preloader');
     /* **************************** end register JS *****************************/
