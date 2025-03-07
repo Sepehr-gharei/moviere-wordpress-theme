@@ -1521,7 +1521,7 @@ footer .logo img {
 .header-single-post .list .item .content .text .favorite i:hover {
   color: #fc4545;
 }
-.header-single-post .list .item .content .text .favorite a {
+.header-single-post .list .item .content .text .favorite p {
   margin-left: 45px;
 
   margin-top: 3px;
@@ -3121,4 +3121,55 @@ p {
   .dashboard .right-side {
     height: 560px;
   }
+}
+
+
+
+
+/* استایل کلی برای alert */
+.custom-alert {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #4caf50; /* رنگ سبز */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  border-right: 5px solid #044111;
+
+}
+
+/* حالت مخفی برای alert */
+.custom-alert.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+/* استایل کلی برای alert قرمز */
+.custom-alert-red {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #f44336; /* رنگ قرمز */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  border-right: 5px solid #410404;
+}
+
+/* حالت مخفی برای alert قرمز */
+.custom-alert-red.hidden {
+  opacity: 0;
+  pointer-events: none;
 }

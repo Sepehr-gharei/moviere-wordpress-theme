@@ -233,21 +233,22 @@
               <p>ای پی شما :</p>
               <p>
 
-              <?php
-              function get_user_ip() {
-                if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                <?php
+                function get_user_ip()
+                {
+                  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
                     $ip = $_SERVER['HTTP_CLIENT_IP'];
-                } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                  } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
                     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-                } else {
+                  } else {
                     $ip = $_SERVER['REMOTE_ADDR'];
+                  }
+                  return $ip;
                 }
-                return $ip;
-            }
-            
-            // نمایش آی‌پی
-            echo   esc_html(get_user_ip());
-              ?>
+
+                // نمایش آی‌پی
+                echo esc_html(get_user_ip());
+                ?>
               </p>
             </div>
             <div class="item">
@@ -308,7 +309,10 @@
                     </svg>
                   </div>
                   <div class="content-text">
-                    <h4>0</h4>
+                    <h4><?php
+                    echo get_watchlist_count();
+                    ?>
+                    </h4>
                     <p>لیست تماشا</p>
                   </div>
                 </div>
@@ -329,19 +333,19 @@
                   </div>
                   <div class="content-text">
                     <h4>
-                      <?php 
+                      <?php
                       if (is_user_logged_in()) {
                         $current_user_id = get_current_user_id();
-                        
+
                         // دریافت تعداد کامنتهای کاربر
                         $comment_count = get_comments(array(
-                            'user_id' => $current_user_id,
-                            'count'   => true, // فقط تعداد را برگردان
-                            'status'  => 'approve' // فقط کامنتهای تاییدشده
+                          'user_id' => $current_user_id,
+                          'count' => true, // فقط تعداد را برگردان
+                          'status' => 'approve' // فقط کامنتهای تاییدشده
                         ));
-                        
-                        echo   esc_html($comment_count);
-                    } 
+
+                        echo esc_html($comment_count);
+                      }
                       ?>
                     </h4>
                     <p>کامنت ها</p>

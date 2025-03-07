@@ -1,5 +1,10 @@
 <!-- ============================ start header single post ============================ -->
-
+<div id="customAlert" class="custom-alert hidden">
+    <span id="alertMessage"></span>
+</div>
+<div id="customAlertRed" class="custom-alert-red hidden">
+    <span id="alertMessageRed"></span>
+</div>
 <div class="header-single-post">
   <!-- list Items -->
   <div class="list">
@@ -13,7 +18,7 @@
         <div class="row">
           <div class="thumbnail col-12 col-md-4">
             <img src="<?php
-             movie_data(data: 'Poster');
+            movie_data(data: 'Poster');
             ?>" alt="" />
           </div>
           <div class="text col-12 col-md-8">
@@ -30,8 +35,8 @@
                   }
                   ?>
                   <?php
-                   movie_data('Title');
-                 
+                  movie_data('Title');
+
                   ?>
                 </h2>
                 <h4><?php
@@ -42,14 +47,17 @@
                 <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
                 <div class="d-flex mt-3 num">
                   <strong><?php
-                   movie_data('imdbRating');
+                  movie_data('imdbRating');
                   ?></strong><small>/10</small>
                   <span><?php
-                  movie_data('imdbVotes'); 
+                  movie_data('imdbVotes');
                   ?> votes</span>
                 </div>
                 <div class="favorite">
-                  <a href=""><i class="fa-solid fa-heart-circle-plus"></i></a>
+                  <?php
+                  // در فایل functions.php پوسته یا پلاگین
+                  add_watchlist_button();
+                  ?>
                 </div>
               </div>
             </div>
@@ -64,8 +72,8 @@
                     if ($post_tags) {
                       foreach ($post_tags as $tag) {
                         ?>
-                        <a  href="<?php echo home_url() . '\tag' . '/' . $tag->slug ?>"><?php echo $tag->name ?></a>
-                        
+                        <a href="<?php echo home_url() . '\tag' . '/' . $tag->slug ?>"><?php echo $tag->name ?></a>
+
                         <?php
                       }
                     } else {
