@@ -35,7 +35,7 @@ $the_query = new WP_Query($args);
                     ?>/
                         <p>10</p>
                     </span>
-                    <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
+                    <img src="<?php echo get_template_directory_uri() . '/assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
                 </span>
 
                 <?php

@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="header d-flex justify-content-center">
-                                <img src="<?php echo get_template_directory_uri() . './assets/image/doucument-icon.svg' ?>"
+                                <img src="<?php echo get_template_directory_uri() . '/assets/image/doucument-icon.svg' ?>"
                                     alt="" />
                                 <p>توضیحات</p>
                             </div>

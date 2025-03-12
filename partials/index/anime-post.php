@@ -7,7 +7,7 @@
     <div class="main-post-slider">
       <div class="header mb-4 mt-5 anime-post-header">
         <h2>
-          <img src="<?php echo get_template_directory_uri() . './assets/image/anime-emoji-emoticon-2-svgrepo-com.svg'; ?>"
+          <img src="<?php echo get_template_directory_uri() . '/assets/image/anime-emoji-emoticon-2-svgrepo-com.svg'; ?>"
             alt="" />
           <span>جدید ترین انیمه ها</span>
         </h2>

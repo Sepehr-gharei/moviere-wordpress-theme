@@ -52,7 +52,7 @@
               <p>
 
                 <?php
-                if (is_user_logged_in()) {
+             
                   $current_user = wp_get_current_user();
 
                   // نام کاربری
@@ -61,7 +61,7 @@
                   $email = $current_user->user_email;
 
                   echo esc_html($email) . '<br>';
-                }
+                
                 ?>
 
 
@@ -73,16 +73,10 @@
               <p>
 
                 <?php
-                if (is_user_logged_in()) {
-                  $current_user = wp_get_current_user();
-
-                  // نام کاربری
-                  $username = $current_user->user_login;
-
-                  // ایمیل کاربر
                 
-                  echo esc_html($username) . '<br>';
-                }
+                echo esc_attr($current_user->nickname)
+
+                
                 ?>
               </p>
             </div>

@@ -4,7 +4,7 @@
         <div class="main-post-slider">
           <div class="header mb-4">
             <h2>
-              <img src="<?php echo get_template_directory_uri() . './assets/image/cinema.svg'?>" alt="" />
+              <img src="<?php echo get_template_directory_uri() . '/assets/image/cinema.svg'?>" alt="" />
               <span>سریال های بروز شده</span>
             </h2>
           </div>

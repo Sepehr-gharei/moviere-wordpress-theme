@@ -4,7 +4,7 @@
     <div class="latest-news-container">
       <div class="header mb-4 mt-5 col-12">
         <h2>
-          <img src="<?php echo get_template_directory_uri() . './assets/image/earth-svgrepo-com.svg' ?>" alt="" />
+          <img src="<?php echo get_template_directory_uri() . '/assets/image/earth-svgrepo-com.svg' ?>" alt="" />
           
           <span>اخرین اخبار ها</span>
         </h2>

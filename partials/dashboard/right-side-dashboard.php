@@ -20,10 +20,12 @@
         }
 
         ?>
-        <p class="mt-2 name">sepehr gharei</p>
+        <p class="mt-2 name"><?php 
+        echo esc_attr($current_user->nickname)
+        ?></p>
     </div>
 
-    <a href="">
+    <a href="<?php echo home_url() . '/dashboard' ?>">
         <div class="sidebar-item d-flex justify-content-between 
           <?php if (is_page('dashboard')) {
               echo 'active';
@@ -52,7 +54,7 @@
             </svg>
         </div>
     </a>
-    <a href="">
+    <a href="<?php echo home_url() . '/dashboard/subscribtion' ?>">
         <div class="sidebar-item d-flex justify-content-between
          <?php if (is_page('subscribtion')) {
               echo 'active';
@@ -109,7 +111,7 @@
         </div>
     </a>
 
-    <a href="">
+    <a href="<?php echo home_url() . '/dashboard/my-wallet' ?>">
         <div class="sidebar-item d-flex justify-content-between
          <?php if (is_page('my-wallet')) {
               echo 'active';
@@ -131,7 +133,7 @@
             </svg>
         </div>
     </a>
-    <a href="">
+    <a href="<?php echo home_url() . '/dashboard/favorite' ?>">
         <div class="sidebar-item d-flex justify-content-between
          <?php if (is_page('favorite')) {
               echo 'active';
@@ -161,7 +163,7 @@
             </svg>
         </div>
     </a>
-    <a href="">
+    <a href="<?php echo home_url() . '/dashboard/edit-profile' ?>">
         <div class="sidebar-item d-flex justify-content-between
          <?php if (is_page('edit-profile')) {
               echo 'active';
@@ -192,7 +194,7 @@
             </svg>
         </div>
     </a>
-    <a href="">
+    <a href="<?php echo home_url() . '/dashboard/comment' ?>">
         <div class="sidebar-item d-flex justify-content-between 
          <?php if (is_page('comment')) {
               echo 'active';
@@ -215,7 +217,7 @@
             </svg>
         </div>
     </a>
-    <a href="">
+    <a href="<?php echo home_url() . '/dashboard/support' ?>">
         <div class="sidebar-item d-flex justify-content-between 
         <?php if (is_page('support')) {
               echo 'active';

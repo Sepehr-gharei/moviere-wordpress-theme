@@ -4,7 +4,7 @@
     <div class="fag-accordion">
       <div class="header mb-4 mt-5 question-box-header">
         <h2>
-          <img src="<?php echo get_stylesheet_directory_uri() . './assets/image/question-mark-svgrepo-com.svg' ?>"
+          <img src="<?php echo get_stylesheet_directory_uri() . '/assets/image/question-mark-svgrepo-com.svg' ?>"
             alt="" />
           <span>سوالات شما</span>
         </h2>

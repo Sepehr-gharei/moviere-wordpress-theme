@@ -3,7 +3,7 @@
   <!-- logo  -->
   <a href="<?php echo home_url() ?>">
     <div class="logo">
-      <img src="<?php echo get_template_directory_uri() . './assets/image/reLogo.png'; ?>" alt="" />
+      <img src="<?php echo get_template_directory_uri() . '/assets/image/reLogo.png'; ?>" alt="" />
     </div>
   </a>
   <!-- nav -->
@@ -20,7 +20,7 @@
         </button>
         <ul class="dropdown-menu first-dropdown-menu">
           <li class="dropdown-item">
-            <img src="<?php echo get_template_directory_uri() . './assets/image/doucument-icon.svg'; ?>" alt="" />
+            <img src="<?php echo get_template_directory_uri() . '/assets/image/doucument-icon.svg'; ?>" alt="" />
             <span class="px-2">دسته ها</span>
             <ul class="dropdown-menu submenu">
               <div class="width-400px">
@@ -39,7 +39,7 @@
             </ul>
           </li>
           <li class="dropdown-item">
-            <img src="<?php echo get_template_directory_uri() . './assets/image/film-icon.svg"'; ?> alt="" />
+            <img src="<?php echo get_template_directory_uri() . '/assets/image/film-icon.svg"'; ?> alt="" />
                 <span class=" px-2">ژانر ها</span>
             <ul class="dropdown-menu submenu">
               <div class="width-400px">
@@ -100,7 +100,7 @@
           <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasdarkNavbar"
             aria-labelledby="offcanvasdarkNavbarLabel">
             <div class="offcanvas-header">
-              <img src="<?php echo get_template_directory_uri() . './assets/image/reLogo.png' ?>" alt="" />
+              <img src="<?php echo get_template_directory_uri() . '/assets/image/reLogo.png' ?>" alt="" />
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"
                 id="header-navbar-btn-close"></button>
             </div>

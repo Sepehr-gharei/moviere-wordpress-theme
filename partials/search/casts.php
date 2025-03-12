@@ -24,58 +24,59 @@
         <div class="actor-post-slider">
             <div class="swiper actor-swiper-slider">
                 <div class="swiper-wrapper">
-                <?php
-                // تنظیم آرگومان‌ها برای WP_Query
-                $args = array(
-                    'post_type' => 'casts', // نوع پست (casts)
-                    'posts_per_page' => 15, // نمایش تمام پست‌ها
-                );
+                    <?php
+                    // تنظیم آرگومان‌ها برای WP_Query
+                    $args = array(
+                        'post_type' => 'casts', // نوع پست (casts)
+                        'posts_per_page' => 15, // نمایش تمام پست‌ها
+                    );
 
-                $query = new WP_Query($args);
+                    $query = new WP_Query($args);
 
-                // اجرای لوپ برای نمایش پست‌ها
-                if ($query->have_posts()) {
-                    while ($query->have_posts()) {
-                        $query->the_post();
+                    // اجرای لوپ برای نمایش پست‌ها
+                    if ($query->have_posts()) {
+                        while ($query->have_posts()) {
+                            $query->the_post();
 
-                        // بررسی عنوان پست
-                        $title_contains = stripos(get_the_title(), $_GET['s']) !== false;
+                            // بررسی عنوان پست
+                            $title_contains = stripos(get_the_title(), $_GET['s']) !== false;
 
-                        // بررسی برچسب‌ها
-                        $terms = get_the_terms(get_the_ID(), 'cast_tag'); // دریافت برچسب‌های پست
-                        $tag_contains = false;
+                            // بررسی برچسب‌ها
+                            $terms = get_the_terms(get_the_ID(), 'cast_tag'); // دریافت برچسب‌های پست
+                            $tag_contains = false;
 
-                        if ($terms && !is_wp_error($terms)) {
-                            foreach ($terms as $term) {
-                                if (stripos($term->name, $_GET['s']) !== false) {
-                                    $tag_contains = true;
-                                    break; // اگر برچسب مناسب پیدا شد، حلقه را متوقف می‌کنیم
+                            if ($terms && !is_wp_error($terms)) {
+                                foreach ($terms as $term) {
+                                    if (stripos($term->name, $_GET['s']) !== false) {
+                                        $tag_contains = true;
+                                        break; // اگر برچسب مناسب پیدا شد، حلقه را متوقف می‌کنیم
+                                    }
                                 }
                             }
-                        }
 
-                        // اگر عنوان یا برچسب‌ها شامل "al pacino" باشد، پست را نمایش می‌دهیم
-                        if ($title_contains || $tag_contains) { ?>
-                            <div class="swiper-slide">
-                                <div class="position-relative swiper-header-slide">
-                                    <?php if (has_post_thumbnail()) {
-                                        $thumbnail_url = get_the_post_thumbnail_url();
-                                        echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
-                                    }
-                                    ?>
-                                    <h4><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title() ?></a>
-                                    </h4>
+                            // اگر عنوان یا برچسب‌ها شامل "al pacino" باشد، پست را نمایش می‌دهیم
+                            if ($title_contains || $tag_contains) { ?>
+                                <div class="swiper-slide">
+                                    <div class="position-relative swiper-header-slide">
+                                        <?php if (has_post_thumbnail()) {
+                                            $thumbnail_url = get_the_post_thumbnail_url();
+                                            echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
+                                        }
+                                        ?>
+                                        <h4><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title() ?></a>
+                                        </h4>
+                                    </div>
                                 </div>
-                            </div>
-                           
-                        <?php }
-                    }
-                }
 
-                // بازنشانی لوپ وردپرس
-                wp_reset_postdata();
-                ?>
+                            <?php }
+                        }
+                    }
+
+                    // بازنشانی لوپ وردپرس
+                    wp_reset_postdata();
+                    ?>
+                </div>
             </div>
-        </div></div>
+        </div>
     </div>
 </div>

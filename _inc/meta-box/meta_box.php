@@ -224,18 +224,8 @@ add_action('save_post', 'save_gender_metabox');
 
 
 
-
-
-
-
-
-
-
-                
-
-
-
-function custom_series_download_add_meta_box() {
+function custom_series_download_add_meta_box()
+{
     global $post;
     $categories = get_the_category($post->ID);
     $show_meta_box = false;
@@ -258,9 +248,10 @@ function custom_series_download_add_meta_box() {
 }
 add_action('add_meta_boxes', 'custom_series_download_add_meta_box');
 
-function custom_series_download_meta_box_html($post) {
+function custom_series_download_meta_box_html($post)
+{
     wp_nonce_field('custom_series_download_save_meta_box_data', 'custom_series_download_meta_box_nonce');
-    
+
     $season_data = get_post_meta($post->ID, '_season_data', true);
     ?>
     <div id="season-container">
@@ -278,9 +269,14 @@ function custom_series_download_meta_box_html($post) {
                                 <div class="quality">
                                     <h5>کیفیت <?php echo $quality_index + 1; ?></h5>
                                     <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>">کیفیت:</label>
-                                    <input type="text" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][name]" id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>" value="<?php echo esc_attr($quality['name']); ?>" />
-                                    <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_subtitle">زیرنویس دارد:</label>
-                                    <input type="checkbox" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][subtitle]" id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_subtitle" <?php echo isset($quality['subtitle']) && $quality['subtitle'] ? 'checked' : ''; ?> />
+                                    <input type="text" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][name]"
+                                        id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>"
+                                        value="<?php echo esc_attr($quality['name']); ?>" />
+                                    <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_subtitle">زیرنویس
+                                        دارد:</label>
+                                    <input type="checkbox"
+                                        name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][subtitle]"
+                                        id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_subtitle" <?php echo isset($quality['subtitle']) && $quality['subtitle'] ? 'checked' : ''; ?> />
                                     <div class="episodes">
                                         <?php
                                         if (!empty($quality['episodes'])) {
@@ -288,15 +284,20 @@ function custom_series_download_meta_box_html($post) {
                                                 ?>
                                                 <div class="episode">
                                                     <p>قسمت <?php echo $ep_index + 1; ?>:</p>
-                                                    <label for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_episode_<?php echo $ep_index; ?>_link">لینک:</label>
-                                                    <input type="text" name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][episodes][<?php echo $ep_index; ?>][link]" id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_episode_<?php echo $ep_index; ?>_link" value="<?php echo esc_attr($episode['link']); ?>" />
+                                                    <label
+                                                        for="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_episode_<?php echo $ep_index; ?>_link">لینک:</label>
+                                                    <input type="text"
+                                                        name="season[<?php echo $index; ?>][qualities][<?php echo $quality_index; ?>][episodes][<?php echo $ep_index; ?>][link]"
+                                                        id="season_<?php echo $index; ?>_quality_<?php echo $quality_index; ?>_episode_<?php echo $ep_index; ?>_link"
+                                                        value="<?php echo esc_attr($episode['link']); ?>" />
                                                 </div>
                                                 <?php
                                             }
                                         }
                                         ?>
                                     </div>
-                                    <button type="button" class="add-episode" data-season-index="<?php echo $index; ?>" data-quality-index="<?php echo $quality_index; ?>">افزودن قسمت</button>
+                                    <button type="button" class="add-episode" data-season-index="<?php echo $index; ?>"
+                                        data-quality-index="<?php echo $quality_index; ?>">افزودن قسمت</button>
                                 </div>
                                 <?php
                             }
@@ -312,9 +313,9 @@ function custom_series_download_meta_box_html($post) {
     </div>
     <button type="button" id="add-season">افزودن فصل</button>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             let seasonIndex = <?php echo empty($season_data) ? 0 : count($season_data); ?>;
-            document.getElementById('add-season').addEventListener('click', function() {
+            document.getElementById('add-season').addEventListener('click', function () {
                 let container = document.getElementById('season-container');
                 let div = document.createElement('div');
                 div.classList.add('season');
@@ -325,7 +326,7 @@ function custom_series_download_meta_box_html($post) {
                 seasonIndex++;
             });
 
-            document.getElementById('season-container').addEventListener('click', function(event) {
+            document.getElementById('season-container').addEventListener('click', function (event) {
                 if (event.target.classList.contains('add-quality')) {
                     let seasonIndex = event.target.getAttribute('data-season-index');
                     let qualitiesDiv = event.target.previousElementSibling;
@@ -360,7 +361,8 @@ function custom_series_download_meta_box_html($post) {
     <?php
 }
 
-function custom_series_download_save_meta_box_data($post_id) {
+function custom_series_download_save_meta_box_data($post_id)
+{
     if (!isset($_POST['custom_series_download_meta_box_nonce'])) {
         return;
     }
@@ -393,7 +395,8 @@ add_action('save_post', 'custom_series_download_save_meta_box_data');
 
 
 
-function movie_link_meta_box_add() {
+function movie_link_meta_box_add()
+{
     global $post;
     $categories = get_the_category($post->ID);
     $show_meta_box = true;
@@ -416,9 +419,10 @@ function movie_link_meta_box_add() {
 }
 add_action('add_meta_boxes', 'movie_link_meta_box_add');
 
-function movie_link_meta_box_html($post) {
+function movie_link_meta_box_html($post)
+{
     wp_nonce_field('movie_link_meta_box_save', 'movie_link_meta_box_nonce');
-    
+
     $quality_data = get_post_meta($post->ID, '_quality_data', true);
     ?>
     <div id="quality-container">
@@ -429,9 +433,11 @@ function movie_link_meta_box_html($post) {
                 <div class="quality">
                     <h4>کیفیت <?php echo $index + 1; ?></h4>
                     <label for="quality_<?php echo $index; ?>">کیفیت:</label>
-                    <input type="text" name="quality[<?php echo $index; ?>][name]" id="quality_<?php echo $index; ?>" value="<?php echo esc_attr($quality['name']); ?>" />
+                    <input type="text" name="quality[<?php echo $index; ?>][name]" id="quality_<?php echo $index; ?>"
+                        value="<?php echo esc_attr($quality['name']); ?>" />
                     <label for="quality_<?php echo $index; ?>_subtitle">زیرنویس دارد:</label>
-                    <input type="checkbox" name="quality[<?php echo $index; ?>][subtitle]" id="quality_<?php echo $index; ?>_subtitle" <?php echo isset($quality['subtitle']) && $quality['subtitle'] ? 'checked' : ''; ?> />
+                    <input type="checkbox" name="quality[<?php echo $index; ?>][subtitle]"
+                        id="quality_<?php echo $index; ?>_subtitle" <?php echo isset($quality['subtitle']) && $quality['subtitle'] ? 'checked' : ''; ?> />
                     <div class="episodes">
                         <?php
                         if (!empty($quality['episodes'])) {
@@ -440,7 +446,9 @@ function movie_link_meta_box_html($post) {
                                 <div class="episode">
                                     <p>قسمت <?php echo $ep_index + 1; ?>:</p>
                                     <label for="quality_<?php echo $index; ?>_episode_<?php echo $ep_index; ?>_link">لینک:</label>
-                                    <input type="text" name="quality[<?php echo $index; ?>][episodes][<?php echo $ep_index; ?>][link]" id="quality_<?php echo $index; ?>_episode_<?php echo $ep_index; ?>_link" value="<?php echo esc_attr($episode['link']); ?>" />
+                                    <input type="text" name="quality[<?php echo $index; ?>][episodes][<?php echo $ep_index; ?>][link]"
+                                        id="quality_<?php echo $index; ?>_episode_<?php echo $ep_index; ?>_link"
+                                        value="<?php echo esc_attr($episode['link']); ?>" />
                                 </div>
                                 <?php
                             }
@@ -456,9 +464,9 @@ function movie_link_meta_box_html($post) {
     </div>
     <button type="button" id="add-quality">افزودن کیفیت</button>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             let qualityIndex = <?php echo empty($quality_data) ? 0 : count($quality_data); ?>;
-            document.getElementById('add-quality').addEventListener('click', function() {
+            document.getElementById('add-quality').addEventListener('click', function () {
                 let container = document.getElementById('quality-container');
                 let div = document.createElement('div');
                 div.classList.add('quality');
@@ -473,7 +481,7 @@ function movie_link_meta_box_html($post) {
                 qualityIndex++;
             });
 
-            document.getElementById('quality-container').addEventListener('click', function(event) {
+            document.getElementById('quality-container').addEventListener('click', function (event) {
                 if (event.target.classList.contains('add-episode')) {
                     let qualityIndex = event.target.getAttribute('data-quality-index');
                     let episodesDiv = event.target.previousElementSibling;
@@ -491,7 +499,8 @@ function movie_link_meta_box_html($post) {
     <?php
 }
 
-function movie_link_meta_box_save($post_id) {
+function movie_link_meta_box_save($post_id)
+{
     if (!isset($_POST['movie_link_meta_box_nonce'])) {
         return;
     }

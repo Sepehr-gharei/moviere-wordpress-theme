@@ -44,7 +44,7 @@
                 ?></h4>
               </div>
               <div class="left-side col-5" dir="ltr">
-                <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
+                <img src="<?php echo get_template_directory_uri() . '/assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
                 <div class="d-flex mt-3 num">
                   <strong><?php
                   movie_data('imdbRating');

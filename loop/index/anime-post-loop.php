@@ -36,7 +36,7 @@ $the_query = new WP_Query($args);
 
                     ?></div>
                     <div class="rating d-flex">
-                        <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
+                        <img src="<?php echo get_template_directory_uri() . '/assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
                         <p dir="ltr"><?php
                         movie_data('imdbRating');
                         ?>

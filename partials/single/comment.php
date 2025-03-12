@@ -5,7 +5,7 @@
             <div class="header">
                 <div class="row">
                     <div class="col-6 comment-text d-flex">
-                        <img src="<?php echo get_template_directory_uri() . './assets/image/text-message-icon .svg' ?>"
+                        <img src="<?php echo get_template_directory_uri() . '/assets/image/text-message-icon .svg' ?>"
                             alt="" />
                         <h2>نظرات</h2>
                     </div>

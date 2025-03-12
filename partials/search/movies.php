@@ -23,59 +23,89 @@
 <!--  ============================ end title  ============================ -->
 <div class="container wrapper-fim-category">
     <div class="row">
-        <?php
 
-        
-        // پارامترهای WP_Query
-        $args = array(
-            'post_type' => 'post', // نوع پست
-            'posts_per_page' => 20, // تعداد پست‌ها در هر صفحه
-            's' => $_GET['s'], // جستجوی عبارت "scarface" در عنوان و محتوا
-        
-        );
+    <?php
+// جستجوی عنوان پست
+$title_args = array(
+    'post_type' => 'post',
+    'posts_per_page' => -1, // تمام پستها
+    's' => $_GET['s'], // جستجوی عبارت در عنوان
+);
 
+// جستجوی متا باکس name
+$meta_args = array(
+    'post_type' => 'post',
+    'posts_per_page' => -1, // تمام پستها
+    'meta_query' => array(
+        array(
+            'key' => 'movie_title',
+            'value' => $_GET['s'],
+            'compare' => 'LIKE',
+        ),
+    ),
+);
 
-        // ایجاد یک نمونه از WP_Query
-        $custom_query = new WP_Query($args);
+// اجرای دو کوئری جداگانه
+$title_query = new WP_Query($title_args);
+$meta_query = new WP_Query($meta_args);
 
-        // شروع لوپ
-        if ($custom_query->have_posts()):
-            while ($custom_query->have_posts()):
-                $custom_query->the_post();
-                // محتوای هر پست
-                ?>
-                <section class="wrapper-film col-6 col-md-4 col-lg-3">
-                    <div class="position-relative wrapper-header-slide">
-                        <div class="top-info d-flex justify-content-between">
-                            <div class="date"><?php
-                            $movie_details = get_movie_details(get_post_meta(get_the_ID(), '_my_input_value_key', true));
-                            if ($movie_details) {
-                                $year = $movie_details->Year;
-                                $number_string = strval($year);
-                                $first_four_digits = substr($number_string, 0, 4);
-                                echo $first_four_digits;
-                            }
-                            ?></div>
-                            <div class="rating d-flex">
-                                <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>"
-                                    alt="" />
-                                <p><?php movie_data(data: 'imdbRating') ?><span>/10</span></p>
-                            </div>
+// ادغام نتایج دو کوئری
+$merged_posts = array_unique(
+    array_merge(
+        wp_list_pluck($title_query->posts, 'ID'),
+        wp_list_pluck($meta_query->posts, 'ID')
+    )
+);
+
+// ایجاد کوئری نهایی بر اساس IDهای ادغام شده
+if (!empty($merged_posts)) {
+    $final_args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 20,
+        'post__in' => $merged_posts,
+        'orderby' => 'post__in', // حفظ ترتیب ادغام شده
+    );
+
+    $final_query = new WP_Query($final_args);
+
+    // شروع لوپ
+    if ($final_query->have_posts()):
+        while ($final_query->have_posts()):
+            $final_query->the_post();
+            // محتوای هر پست
+            ?>
+            <section class="wrapper-film col-6 col-md-4 col-lg-3">
+                <div class="position-relative wrapper-header-slide">
+                    <div class="top-info d-flex justify-content-between">
+                        <div class="date"><?php
+                        $movie_details = get_movie_details(get_post_meta(get_the_ID(), '_my_input_value_key', true));
+                        if ($movie_details) {
+                            $year = $movie_details->Year;
+                            $number_string = strval($year);
+                            $first_four_digits = substr($number_string, 0, 4);
+                            echo $first_four_digits;
+                        }
+                        ?></div>
+                        <div class="rating d-flex">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/image/IMDB_Logo_2016.svg' ?>"
+                                alt="" />
+                            <p><?php movie_data(data: 'imdbRating') ?><span>/10</span></p>
                         </div>
-                        <a href="<?php the_permalink() ?>"> <img src="<?php movie_data('Poster') ?>"
-                                alt="<?php movie_data('Title') ?>" /></a>
-                        <h4 class="position-relative"><a href="<?php the_permalink() ?>"><?php movie_data('Title') ?></a></h4>
                     </div>
-                </section>
-                <?php
-            endwhile;
+                    <a href="<?php the_permalink() ?>"> <img src="<?php movie_data('Poster') ?>"
+                            alt="<?php movie_data('Title') ?>" /></a>
+                    <h4 class="position-relative"><a href="<?php the_permalink() ?>"><?php movie_data('Title') ?></a></h4>
+                </div>
+            </section>
+            <?php
+        endwhile;
 
-            // Pagination
-        
-            // بازنشانی پست‌های اصلی
-            wp_reset_postdata();
-
-        endif;
-        ?>
+                // Pagination
+        // بازنشانی پست‌های اصلی
+        wp_reset_postdata();
+    
+    endif;
+}
+?>
     </div>
 </div>

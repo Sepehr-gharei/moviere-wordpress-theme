@@ -3324,3 +3324,29 @@ p {
   img {
   height: 20px;
 }
+
+.dashboard .left-side .user-profile .item{
+  margin: 20px 10px;
+}
+.dashboard .left-side .user-profile input ,.dashboard .left-side .user-profile textarea  {
+ width: 100%;
+ padding: 5px;
+ background-color: #262626;
+ border-radius: 10px;
+ border: unset;
+ color: #efefef;
+}
+.dashboard .left-side .user-profile textarea::-webkit-resizer{
+  background-color: #262626;
+  
+}
+ .dashboard .left-side .user-profile button{
+  font-size: 24px;
+  padding: 5px 13px;
+  background-color: #022c22b0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 0px black;
+}
+.dashboard .left-side .user-profile label{
+  font-size: 20px;
+}

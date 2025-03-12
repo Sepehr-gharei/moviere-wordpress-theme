@@ -27,7 +27,7 @@ if ($custom_query->have_posts()):
                     <span> <?php
                     movie_data('imdbRating');
                     ?>/<span>10</span></span>
-                    <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
+                    <img src="<?php echo get_template_directory_uri() . '/assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
                 </p>
                 <h2>
                     <a href="<?php echo the_permalink() ?>">

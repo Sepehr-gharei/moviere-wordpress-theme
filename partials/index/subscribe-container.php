@@ -8,7 +8,7 @@
           <div class="col-lg-12 col-md-12">
             <div class="header mb-4">
               <h2>
-                <img src="<?php echo get_template_directory_uri() . './assets/image/diamond-svgrepo-com.svg'; ?>"
+                <img src="<?php echo get_template_directory_uri() . '/assets/image/diamond-svgrepo-com.svg'; ?>"
                   alt="" />
                 <span> اشتراک ها </span>
               </h2>

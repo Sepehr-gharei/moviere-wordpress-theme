@@ -57,7 +57,7 @@ if ($custom_query->have_posts()):
                     }
                     ?></div>
                     <div class="rating d-flex">
-                        <img src="<?php echo get_template_directory_uri() . './assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
+                        <img src="<?php echo get_template_directory_uri() . '/assets/image/IMDB_Logo_2016.svg' ?>" alt="" />
                         <p><?php movie_data(data: 'imdbRating') ?><span>/10</span></p>
                     </div>
                 </div>

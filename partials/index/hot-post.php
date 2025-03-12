@@ -4,7 +4,7 @@
     <div class="main-post-slider">
       <div class="header mb-4">
         <h2>
-          <img src="<?php echo get_template_directory_uri() . './assets/image/fire-icon.svg' ?>" alt="" />
+          <img src="<?php echo get_template_directory_uri() . '/assets/image/fire-icon.svg' ?>" alt="" />
           <span>داغ ترین فیلم ها</span>
         </h2>
       </div>
