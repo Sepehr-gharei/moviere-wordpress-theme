@@ -117,7 +117,7 @@
               <div class="item col-12 col-sm-6 col-lg-4 ">
                 <div class="d-flex">
                   <div class="img comment">
-                    <? xml ?>
+                 
                     <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                     <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                       <path

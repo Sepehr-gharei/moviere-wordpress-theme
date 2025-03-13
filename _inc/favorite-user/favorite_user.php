@@ -11,7 +11,7 @@ function add_favorite_button() {
         $user_id = get_current_user_id();
         $favorite = get_user_meta($user_id, 'user_favorite', true) ?: [];
         $button_text = in_array($post->ID, $favorite) ? 'minus' : 'plus';
-        echo '<p class="favorite-btn button" data-post-id="' . $post->ID . '"><i class="fa-solid fa-heart-circle-' . $button_text . '"></i></p>';
+        return '<p class="favorite-btn button" data-post-id="' . $post->ID . '"><i class="fa-solid fa-heart-circle-' . $button_text . '"></i></p>';
     }
 }
 

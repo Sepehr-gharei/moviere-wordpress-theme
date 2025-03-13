@@ -8,7 +8,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 // تنظیمات لوپ برای پست‌های نوع "casts"
 $args = array(
   'post_type' => 'casts', // نوع پست
-  'posts_per_page' => 6, // تعداد پست‌ها در هر صفحه
+  'posts_per_page' => 13, // تعداد پست‌ها در هر صفحه
   'paged' => $paged, // شماره صفحه فعلی
 );
 

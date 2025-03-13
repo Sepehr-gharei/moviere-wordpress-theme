@@ -13,7 +13,7 @@ $tag = get_term_by('slug', $tag_name, 'post_tag');
 // پارامترهای WP_Query
 $args = array(
     'post_type' => 'post', // نوع پست
-    'posts_per_page' => 12, // تعداد پست‌ها در هر صفحه
+    'posts_per_page' => 14, // تعداد پست‌ها در هر صفحه
     'paged' => $paged, // شماره صفحه فعلی
     'tag_id' => $tag->term_id, // دسته‌بندی (اختیاری)
 );

@@ -7,7 +7,7 @@
           <div class="col-9 mt-2 d-flex justify-content-start logo">
 
             <a href="<?php echo home_url() ?>"><img
-                src="<?php echo get_template_directory_uri() . './assets/image/moviere-logo.png'; ?>" alt="" /></a>
+                src="<?php echo get_template_directory_uri() . '/assets/image/moviere-logo.png'; ?>" alt="" /></a>
           </div>
         </div>
         <div class="d-flex col-7 col-md-3 col-lg-3 align-items-center justify-content-end">

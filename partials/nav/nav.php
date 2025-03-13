@@ -26,13 +26,13 @@
               <div class="width-400px">
                 <div class="row">
                   <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="<?php echo home_url() . 'category/film' ?>">فیلم</a></li>
+                    <li><a class="dropdown-item" href="<?php echo home_url() . '/category/movies' ?>">فیلم</a></li>
                   </div>
                   <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="<?php echo home_url() . 'category/series' ?>">سریال</a></li>
+                    <li><a class="dropdown-item" href="<?php echo home_url() . '/category/series' ?>">سریال</a></li>
                   </div>
                   <div class="col-6 col-md-3 mx-3 my-2">
-                    <li><a class="dropdown-item" href="<?php echo home_url() . 'category/anime' ?>">انیمه</a></li>
+                    <li><a class="dropdown-item" href="<?php echo home_url() . '/category/anime' ?>">انیمه</a></li>
                   </div>
                 </div>
               </div>
@@ -115,14 +115,14 @@
                     <div class="width-400px">
                       <div class="row">
                         <div class="col-6 col-md-3 mx-3 my-2">
-                          <li><a class="dropdown-item" href="<?php echo home_url() . 'category/film' ?>">فیلم</a></li>
+                          <li><a class="dropdown-item" href="<?php echo home_url() . '/category/movies' ?>">فیلم</a></li>
                         </div>
                         <div class="col-6 col-md-3 mx-3 my-2">
-                          <li><a class="dropdown-item" href="<?php echo home_url() . 'category/series' ?>">سریال</a>
+                          <li><a class="dropdown-item" href="<?php echo home_url() . '/category/series' ?>">سریال</a>
                           </li>
                         </div>
                         <div class="col-6 col-md-3 mx-3 my-2">
-                          <li><a class="dropdown-item" href="<?php echo home_url() . 'category/anime' ?>">انیمه</a></li>
+                          <li><a class="dropdown-item" href="<?php echo home_url() . '/category/anime' ?>">انیمه</a></li>
                         </div>
                       </div>
                     </div>

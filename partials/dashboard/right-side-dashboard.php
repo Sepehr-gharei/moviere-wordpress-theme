@@ -47,7 +47,7 @@
                 </svg>
                 <p class="px-2">داشــبـورد</p>
             </div>
-            <? xml ?>
+        
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" />
@@ -61,7 +61,7 @@
           } ?>
         ">
             <div class="d-flex align-items-center">
-                <? xml ?>
+      
                 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 462.949 462.949" xml:space="preserve">
@@ -103,7 +103,7 @@
                 </svg>
                 <p class="px-2">خرید اشتــراک</p>
             </div>
-            <? xml ?>
+           
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" />
@@ -118,7 +118,7 @@
           } ?>
         ">
             <div class="d-flex align-items-center">
-                <? xml ?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+               <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M21.31 9H14.0176C12.351 9 11 10.3431 11 12C11 13.6569 12.351 15 14.0176 15H21.31M14 12V12.01M3.55556 5.72222C4.08333 5.36111 7.77778 5 12 5C16.2222 5 19.9167 5.36111 20.4444 5.72222C20.7556 5.93511 21.0667 7.40107 21.2697 8.75005C21.3207 9.08894 21.3649 9.45201 21.4005 9.83339C21.4637 10.509 21.5 11.2421 21.5 12.0001C21.5 13.1859 21.4111 14.3108 21.2697 15.2501C21.0667 16.599 20.7556 18.0649 20.4444 18.2778C19.9167 18.6389 16.2222 19 12 19C7.77778 19 4.08333 18.6389 3.55556 18.2778C3.02778 17.9167 2.5 14.8889 2.5 12.0001C2.5 11.2421 2.53633 10.509 2.59946 9.83339C2.77694 7.9339 3.16625 5.98859 3.55556 5.72222Z"
@@ -126,7 +126,7 @@
                 </svg>
                 <p class="px-2">کیف پول من</p>
             </div>
-            <? xml ?>
+           
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" />
@@ -156,7 +156,7 @@
                 </svg>
                 <p class="px-2"> علاقه مندی</p>
             </div>
-            <? xml ?>
+           
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" />
@@ -170,7 +170,7 @@
           } ?>
         ">
             <div class="d-flex align-items-center">
-                <? xml ?>
+               
                 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -187,7 +187,7 @@
                 </svg>
                 <p class="px-2">ویرایش پروفایل</p>
             </div>
-            <? xml ?>
+           
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" />
@@ -201,7 +201,7 @@
           } ?>
         ">
             <div class="d-flex align-items-center">
-                <? xml ?>
+               
                 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -210,7 +210,7 @@
                 </svg>
                 <p class="px-2">دیـدگــاه ها</p>
             </div>
-            <? xml ?>
+           
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" />
@@ -224,7 +224,7 @@
           } ?>
         ">
             <div class="d-flex align-items-center">
-                <? xml ?>
+               
 
                 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                 <svg viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -234,7 +234,7 @@
                 </svg>
                 <p class="px-2">پشتیبانــی</p>
             </div>
-            <? xml ?>
+           
             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
             <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" />

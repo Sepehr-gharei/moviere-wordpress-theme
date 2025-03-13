@@ -26,13 +26,13 @@
 
                                 </div>
                                 <ul>
-                                    <li class="col-4">
+                                    <li class="col-12 col-sm-6 col-lg-5">
                                         <i class="fa-regular fa-clock"></i>
                                         <p>مدت زمان :</p>
                                         <span><?php movie_data('Runtime'); ?></span>
 
                                     </li>
-                                    <li class="col-4">
+                                    <li class="col-12 col-sm-6 col-lg-4">
                                         <i class="fa-regular fa-calendar-days"></i>
                                         <p>سال انتشار :</p>
                                         <span><?php movie_data('Year');
@@ -40,7 +40,7 @@
                                         ?>
                                         </span>
                                     </li>
-                                    <li class="col-4">
+                                    <li class="col-12 col-sm-6 col-lg-4">
                                         <i class="fa-solid fa-language"></i>
                                         <p>زبان :</p>
                                         <span><?php movie_data('Language'); ?></span>

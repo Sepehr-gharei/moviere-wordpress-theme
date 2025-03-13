@@ -51,12 +51,12 @@
                   ?></strong><small>/10</small>
                   <span><?php
                   movie_data('imdbVotes');
-                  ?> votes</span>
+                  ?></span>
                 </div>
                 <div class="favorite">
                   <?php
                   // در فایل functions.php پوسته یا پلاگین
-                  add_favorite_button();
+                  echo add_favorite_button();
                   ?>
                 </div>
               </div>
