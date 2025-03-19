@@ -1,4 +1,7 @@
 <?php
+if(!session_id()){
+    session_start();
+}
 include_once("_inc/assets/register_assets.php");
 include_once("_inc/theme/theme_setup.php");
 include_once("_inc/meta-box/meta_box.php");
@@ -11,3 +14,5 @@ include_once("_inc/question-box/question_box.php");
 include_once("_inc/admin-bar-css/style.php");
 include_once("_inc/favorite-user/favorite_user.php");
 include_once("_inc/profile-user-dashboard/profile_user_dashboard.php");
+include_once("_inc/sign-in/send_sms.php");
+include_once("_inc/sign-in/register.php");

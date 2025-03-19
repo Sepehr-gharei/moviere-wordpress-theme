@@ -52,5 +52,18 @@ function register_assets()
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce'    => wp_create_nonce('like_dislike_nonce')
     ));
+    wp_enqueue_script(
+        'sign-in-script',
+        get_template_directory_uri() . '/assets/js/sign-in.js',
+        array('jquery'),
+        null,
+        true
+    );
+
+    // ارسال متغیر وضعیت لاگین
+    wp_localize_script('sign-in-script', 'ajax_object', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        '_nonce' => wp_create_nonce()
+    ));
 }
 add_action('wp_enqueue_scripts', 'register_assets');

@@ -73,8 +73,8 @@ get_header(); ?>
                                     </div>
                                     <textarea name="bio" maxlength="400" class="form-control"
                                         id="exampleFormControlTextarea1 bio" rows="3">
-<?php echo esc_textarea(get_user_meta($current_user->ID, 'bio', true)); ?>
- </textarea>
+                               <?php echo esc_textarea(get_user_meta($current_user->ID, 'bio', true)); ?>
+                                     </textarea>
                                 </div>
 
                                 <div class="item">

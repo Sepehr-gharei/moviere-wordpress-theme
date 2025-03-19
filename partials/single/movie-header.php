@@ -1,10 +1,5 @@
 <!-- ============================ start header single post ============================ -->
-<div id="customAlert" class="custom-alert hidden">
-    <span id="alertMessage"></span>
-</div>
-<div id="customAlertRed" class="custom-alert-red hidden">
-    <span id="alertMessageRed"></span>
-</div>
+
 <div class="header-single-post">
   <!-- list Items -->
   <div class="list">

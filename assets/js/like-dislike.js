@@ -32,7 +32,11 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 if (response.success) {
-                    button.text((action === 'like' ? '👍 ' : '👎 ') + response.data.count);
+                    if (action === 'like') {
+                        button.html('<i style="color: #137246;" class="fa fa-thumbs-up" aria-hidden="true"></i>' + response.data.count);
+                    } else {
+                        button.html('<i style="color: #f87171;" class="fa fa-thumbs-down" aria-hidden="true"></i> ' + response.data.count);
+                    }
                 } else {
                 
                     showCustomAlertRed(response.data);

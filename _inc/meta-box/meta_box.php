@@ -519,3 +519,72 @@ function movie_link_meta_box_save($post_id)
     }
 }
 add_action('save_post', 'movie_link_meta_box_save');
+
+
+
+// اضافه کردن فیلد Phone به پروفایل کاربری
+function add_phone_to_profile($user)
+{
+    ?>
+    <h3><?php _e("اطلاعات تماس", "textdomain"); ?></h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="phone"><?php _e("شماره تلفن"); ?></label></th>
+            <td>
+                <input type="text" name="phone" id="phone"
+                    value="<?php echo esc_attr(get_the_author_meta('phone', $user->ID)); ?>" class="regular-text" /><br />
+                <span class="description"><?php _e("لطفاً شماره تلفن خود را وارد کنید."); ?></span>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+add_action('show_user_profile', 'add_phone_to_profile');
+add_action('edit_user_profile', 'add_phone_to_profile');
+
+// ذخیره مقدار فیلد Phone در دیتابیس
+function save_phone_to_profile($user_id)
+{
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+    if (isset($_POST['phone'])) {
+        update_user_meta($user_id, 'phone', sanitize_text_field($_POST['phone']));
+    }
+}
+add_action('personal_options_update', 'save_phone_to_profile');
+add_action('edit_user_profile_update', 'save_phone_to_profile');
+
+// اضافه کردن فیلد Phone به فرم ثبت نام
+function add_phone_to_register_form()
+{
+    ?>
+    <p>
+        <label for="phone"><?php _e('شماره تلفن', 'textdomain'); ?><br />
+            <input type="text" name="phone" id="phone" class="input" value="<?php echo esc_attr($_POST['phone'] ?? ''); ?>"
+                size="25" /></label>
+    </p>
+    <?php
+}
+add_action('register_form', 'add_phone_to_register_form');
+
+// اعتبارسنجی فیلد Phone در فرم ثبت نام
+function validate_phone_on_registration($errors, $sanitized_user_login, $user_email)
+{
+    if (empty($_POST['phone'])) {
+        $errors->add('phone_error', __('<strong>خطا</strong>: لطفاً شماره تلفن خود را وارد کنید.', 'textdomain'));
+    } elseif (!preg_match('/^\d{10,15}$/', $_POST['phone'])) { // اعتبارسنجی فرمت شماره تلفن
+        $errors->add('phone_invalid', __('<strong>خطا</strong>: شماره تلفن وارد شده معتبر نیست.', 'textdomain'));
+    }
+    return $errors;
+}
+add_filter('registration_errors', 'validate_phone_on_registration', 10, 3);
+
+// ذخیره شماره تلفن در دیتابیس هنگام ثبت نام
+function save_phone_on_registration($user_id)
+{
+    if (!empty($_POST['phone'])) {
+        update_user_meta($user_id, 'phone', sanitize_text_field($_POST['phone']));
+    }
+}
+add_action('user_register', 'save_phone_on_registration');

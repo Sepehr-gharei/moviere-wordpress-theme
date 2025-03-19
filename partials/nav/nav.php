@@ -1,4 +1,10 @@
 <!-- ============================ start navbar ============================ -->
+<div id="customAlert" class="custom-alert hidden">
+  <span id="alertMessage"></span>
+</div>
+<div id="customAlertRed" class="custom-alert-red hidden">
+  <span id="alertMessageRed"></span>
+</div>
 <header id="scroll-top">
   <!-- logo  -->
   <a href="<?php echo home_url() ?>">
@@ -115,14 +121,16 @@
                     <div class="width-400px">
                       <div class="row">
                         <div class="col-6 col-md-3 mx-3 my-2">
-                          <li><a class="dropdown-item" href="<?php echo home_url() . '/category/movies' ?>">فیلم</a></li>
+                          <li><a class="dropdown-item" href="<?php echo home_url() . '/category/movies' ?>">فیلم</a>
+                          </li>
                         </div>
                         <div class="col-6 col-md-3 mx-3 my-2">
                           <li><a class="dropdown-item" href="<?php echo home_url() . '/category/series' ?>">سریال</a>
                           </li>
                         </div>
                         <div class="col-6 col-md-3 mx-3 my-2">
-                          <li><a class="dropdown-item" href="<?php echo home_url() . '/category/anime' ?>">انیمه</a></li>
+                          <li><a class="dropdown-item" href="<?php echo home_url() . '/category/anime' ?>">انیمه</a>
+                          </li>
                         </div>
                       </div>
                     </div>
@@ -187,7 +195,7 @@
             class="fa-solid fa-circle-xmark"></i></span>
         <div class="close-2-background" onclick="closeSearch()"></div>
         <div class="overlay-content">
-          <form action="<?php bloginfo('url') ?>" method="get"  role="search" dir="ltr">
+          <form action="<?php bloginfo('url') ?>" method="get" role="search" dir="ltr">
             <label for="search">Search for stuff</label>
             <input id="search" name="s" type="search" placeholder="Search..." autofocus required />
             <button type="submit">Go</button>
@@ -216,18 +224,20 @@
             <i class="fa-solid fa-user"></i>
           </a>
           <ul class="dropdown-menu text-end " aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">داشبورد</a></li>
-            <li><a class="dropdown-item" href="#">خرید اشتراک</a></li>
-            <li><a class="dropdown-item" href="#">کیف پول من</a></li>
-            <li><a class="dropdown-item" href="#">لیست تماشا</a></li>
-            <li><a class="dropdown-item" href="#">ویرایش پروفایل</a></li>
+            <li><a class="dropdown-item" href="<?php echo home_url() . '/dashboard' ?>">داشبورد</a></li>
+            <li><a class="dropdown-item" href="<?php echo home_url() . '/dashboard/subscribtion' ?>">خرید اشتراک</a></li>
+            <li><a class="dropdown-item" href="<?php echo home_url() . '/dashboard/my-wallet' ?>">کیف پول من</a></li>
+            <li><a class="dropdown-item" href="<?php echo home_url() . '/dashboard/favorite' ?>">لیست علاقه مندی ها</a>
+            </li>
+            <li><a class="dropdown-item" href="<?php echo home_url() . '/dashboard/edit-profile' ?>">ویرایش پروفایل</a>
+            </li>
             <li><a class="dropdown-item log-out " href="<?php echo wp_logout_url(home_url()) ?>">خروج</a></li>
           </ul>
         </div>
 
       </div>
     <?php else: ?>
-      <a href=""> ورود | ثبت نام </a>
+      <a href="<?php echo home_url() . '/sign-in' ?>"> ورود | ثبت نام </a>
     <?php endif; ?>
   </div>
 

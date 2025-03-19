@@ -6,21 +6,60 @@
         <article>
           <figure>
             <div class="profile">
-              <img src="./assets/image/actors/30195091-l_30NAMA.webp" alt="" />
+              <?php if (has_post_thumbnail()) {
+                $thumbnail_url = get_the_post_thumbnail_url();
+                echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . get_the_title() . '">';
+              }
+              ?>
+
             </div>
           </figure>
           <figcaption>
             <div class="content">
               <div class="detail-artist">
                 <div class="name">
-                  <p>نام : Alfred Hitchcock</p>
+                  <p>نام : <?php echo get_the_title() ?> </p>
                 </div>
-                <div class="profession">
-                  <p>حرفه : کارگردان , نویسنده , بازیگر</p>
-                </div>
+                <p>تعداد فیلم و سریال :
+                  <?php
+                  if (have_posts()):
+                    while (have_posts()):
+                      the_post();
+                      if ('casts' === get_post_type()) { // بررسی کنید که post type برابر با "casts" باشد
+                        $post_id = get_the_ID(); // دریافت ID پست جاری
+                        $tags = get_the_terms($post_id, 'cast_tag');
+                        if (!empty($tags) && !is_wp_error($tags)) {
+                          $tag_count = count($tags); // شمارش تعداد برچسب‌ها
+                          echo $tag_count;
+                        }
+                      }
+                    endwhile;
+                  endif;
+                  ?>
+                </p>
               </div>
-              <div class="bio-artist">
-                <a href="">بیوگرافی</a>
+              <div class="d-flex">
+                <p>حرفه :
+                <div class="d-flex professions">
+                  <?php
+                  if (have_posts()):
+                    while (have_posts()):
+                      the_post();
+                      if ('casts' === get_post_type()) { // بررسی کنید که post type برابر با "casts" باشد
+                        $post_id = get_the_ID(); // دریافت ID پست جاری
+                        $categories = get_the_terms($post_id, 'cast_category');
+                        if (!empty($categories) && !is_wp_error($categories)) {
+
+                          foreach ($categories as $category) {
+                            echo '<p>' . $category->name . '</p>';
+                          }
+                        }
+                      }
+                    endwhile;
+                  endif;
+                  ?>
+                </div>
+                </p>
               </div>
             </div>
           </figcaption>
@@ -48,7 +87,7 @@
 
 
             <div class="left-side d-flex align-items-center justify-content-end">
-           
+
             </div>
           </div>
 

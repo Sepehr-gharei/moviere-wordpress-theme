@@ -25,10 +25,10 @@
       <div class="col-6 col-md-4">
         <h5>دسته ها</h5>
         <ul>
-          <li><a href="">فیلم ها</a></li>
-          <li><a href="">سریال ها</a></li>
-          <li><a href="">انیمه ها</a></li>
-          <li><a href="">اخبار ها</a></li>
+          <li><a href="<?php echo home_url() . '/category/movies' ?>">فیلم ها</a></li>
+          <li><a href="<?php echo home_url() . '/category/series' ?>">سریال ها</a></li>
+          <li><a href="<?php echo home_url() . '/category/anime' ?>">انیمه ها</a></li>
+          <li><a href="<?php echo home_url() . '/news' ?>">اخبار ها</a></li>
         </ul>
       </div>
       <div class="col-6 col-md-4">
